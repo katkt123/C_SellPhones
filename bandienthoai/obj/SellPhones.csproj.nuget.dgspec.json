@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\SellPhones.csproj": {}
+    "C:\\SGU\\Nam3 HK1\\C#\\Doan\\C_SellPhones\\SellPhones\\SellPhones.csproj": {}
   },
   "projects": {
-    "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\SellPhones.csproj": {
+    "C:\\SGU\\Nam3 HK1\\C#\\Doan\\C_SellPhones\\SellPhones\\SellPhones.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\SellPhones.csproj",
+        "projectUniqueName": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\C_SellPhones\\SellPhones\\SellPhones.csproj",
         "projectName": "SellPhones",
-        "projectPath": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\SellPhones.csproj",
+        "projectPath": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\C_SellPhones\\SellPhones\\SellPhones.csproj",
         "packagesPath": "C:\\Users\\HAO KIET\\.nuget\\packages\\",
-        "outputPath": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\obj\\",
+        "outputPath": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\C_SellPhones\\SellPhones\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
