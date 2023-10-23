@@ -12,7 +12,7 @@ namespace SellPhones
             // see https://aka.ms/applicationconfiguration.
             ApplicationConfiguration.Initialize();
 
-            Application.Run(new GUI.MainGUI());
+            Application.Run(new GUI.LoginGUI());
         }
     }
 }

@@ -22,7 +22,7 @@ namespace SellPhones.GUI
         public MainGUI()
         {
             InitializeComponent();
-            AddComponent("Tài Khoản",new TaiKhoanUC(), "logo.jpg");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "logo.jpg");
         }
 
         private void MainGUI_Load(object sender, EventArgs e)

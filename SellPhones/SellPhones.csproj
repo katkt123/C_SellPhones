@@ -12,7 +12,6 @@
     <Folder Include="Comp\" />
     <Folder Include="DTO\" />
     <Folder Include="BUS\" />
-    <Folder Include="DAO\" />
   </ItemGroup>
 
   <ItemGroup>

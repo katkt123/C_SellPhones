@@ -2,8 +2,9 @@
   "ExpandedNodes": [
     "",
     "\\SellPhones",
-    "\\SellPhones\\GUI"
+    "\\SellPhones\\GUI",
+    "\\SellPhones\\GUI\\UserControls"
   ],
-  "SelectedNode": "\\SellPhones.sln",
+  "SelectedNode": "\\SellPhones\\GUI\\LoginGUI.cs",
   "PreviewInSolutionExplorer": false
 }

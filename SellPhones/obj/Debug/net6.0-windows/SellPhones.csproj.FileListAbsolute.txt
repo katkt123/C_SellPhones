@@ -16,3 +16,4 @@ C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\obj\Debug\net6.0-windows\SellPhone
 C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\obj\Debug\net6.0-windows\ref\SellPhones.dll
 C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\obj\Debug\net6.0-windows\SellPhones.GUI.UserControls.TaiKhoanUC.resources
 C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\obj\Debug\net6.0-windows\SellPhones.Properties.Resources.resources
+C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\obj\Debug\net6.0-windows\SellPhones.GUI.LoginGUI.resources
