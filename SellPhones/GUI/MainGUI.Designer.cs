@@ -89,6 +89,7 @@
             button_Thoat.Size = new Size(94, 60);
             button_Thoat.TabIndex = 0;
             button_Thoat.UseVisualStyleBackColor = false;
+            button_Thoat.Click += button_Thoat_Click;
             // 
             // panel_UC
             // 

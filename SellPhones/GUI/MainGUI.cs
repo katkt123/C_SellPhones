@@ -104,7 +104,13 @@ namespace SellPhones.GUI
 
             button_Thoat.Click += (sender, e) =>
             {
-                (pictureBox.TopLevelControl as Form).Close();
+                //(pictureBox.TopLevelControl as Form).Close();
+                this.Hide();
+                LoginGUI login = new LoginGUI();
+                login.StartPosition = FormStartPosition.CenterScreen;
+                login.ShowDialog();
+                this.Close();
+
             };
 
             // Xử lý hoạt ảnh đang hoạt động trên thanh công cụ
@@ -132,6 +138,11 @@ namespace SellPhones.GUI
         }
 
         private void Panel_Picture_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button_Thoat_Click(object sender, EventArgs e)
         {
 
         }

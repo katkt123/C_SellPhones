@@ -32,6 +32,7 @@
             panel1 = new Panel();
             panel2 = new Panel();
             panel3 = new Panel();
+            label_Error = new Label();
             label_Forgot = new Label();
             button_SignUp = new Button();
             button_SignIn = new Button();
@@ -40,7 +41,6 @@
             textBox_TK = new TextBox();
             label2 = new Label();
             label1 = new Label();
-            label_Error = new Label();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -83,6 +83,16 @@
             panel3.Size = new Size(551, 481);
             panel3.TabIndex = 3;
             // 
+            // label_Error
+            // 
+            label_Error.AutoSize = true;
+            label_Error.BackColor = Color.PaleGoldenrod;
+            label_Error.ForeColor = Color.Red;
+            label_Error.Location = new Point(24, 281);
+            label_Error.Name = "label_Error";
+            label_Error.Size = new Size(0, 20);
+            label_Error.TabIndex = 7;
+            // 
             // label_Forgot
             // 
             label_Forgot.AutoSize = true;
@@ -112,6 +122,7 @@
             button_SignIn.TabIndex = 4;
             button_SignIn.Text = "Đăng Nhập";
             button_SignIn.UseVisualStyleBackColor = false;
+            button_SignIn.Click += button_SignIn_Click;
             // 
             // textBox_MK
             // 
@@ -163,16 +174,6 @@
             label1.Size = new Size(266, 62);
             label1.TabIndex = 2;
             label1.Text = "Đăng Nhập";
-            // 
-            // label_Error
-            // 
-            label_Error.AutoSize = true;
-            label_Error.BackColor = Color.PaleGoldenrod;
-            label_Error.ForeColor = Color.Red;
-            label_Error.Location = new Point(24, 281);
-            label_Error.Name = "label_Error";
-            label_Error.Size = new Size(0, 20);
-            label_Error.TabIndex = 7;
             // 
             // LoginGUI
             // 

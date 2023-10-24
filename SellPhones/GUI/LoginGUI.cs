@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Xml.Linq;
 
 namespace SellPhones.GUI
 {
@@ -104,6 +105,18 @@ namespace SellPhones.GUI
                 textBox_MK.ForeColor = System.Drawing.Color.Gray;
                 textBox_MK.Text = "PassWord";
             }
+        }
+
+        private void button_SignIn_Click(object sender, EventArgs e)
+        {
+            //if (valid() && login())
+            //{
+                this.Hide();
+                MainGUI main = new MainGUI();
+                main.StartPosition = FormStartPosition.CenterScreen;
+                main.ShowDialog();
+                this.Close();
+            //}
         }
     }
 }
