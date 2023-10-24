@@ -2,6 +2,7 @@
   "ExpandedNodes": [
     "",
     "\\SellPhones",
+    "\\SellPhones\\DAO",
     "\\SellPhones\\GUI",
     "\\SellPhones\\GUI\\UserControls"
   ],

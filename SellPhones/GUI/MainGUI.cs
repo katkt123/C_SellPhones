@@ -22,7 +22,10 @@ namespace SellPhones.GUI
         public MainGUI()
         {
             InitializeComponent();
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "logo.jpg");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            SolveEvent();
+
         }
 
         private void MainGUI_Load(object sender, EventArgs e)
@@ -82,10 +85,10 @@ namespace SellPhones.GUI
         {
             // Lấy mã nhân viên đã đăng nhập và thêm vào màn hình chính
             manvLogined = "nv001"; // Đổi thành phương thức để lấy mã nhân viên
-            label_MaNV.Text = label_MaNV.Text + manvLogined;
+            label_MaNV.Text = "Mã :" + manvLogined;
 
             // Sửa nút button_Thoat
-            button_Thoat.Size = new Size(90, 60);
+            button_Thoat.Size = new Size(72, 72);
             button_Thoat.ForeColor = Color.White;
             button_Thoat.Font = new Font(button_Thoat.Font.Name, 14, FontStyle.Bold);
             button_Thoat.FlatStyle = FlatStyle.Flat;

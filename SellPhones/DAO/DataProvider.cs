@@ -1,16 +1,32 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Data;
 using System.Data.SqlClient;
+using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SellPhones.DAO
+namespace Sellphone.DAO
 {
     public class DataProvider
-    { 
-        string strCnn = "Data source= ADMIN\\SQLEXPRESS ;database= QLShopGiay ;Integrated Security = True";
+    {
+        /// --------------------Luu Y ---------------------------------///
+        ///  Hàm ExecuteQuery(string query, object[] parameter = null):
+        ///  Hàm này được sử dụng để thực hiện truy vấn đến cơ sở dữ liệu.Hàm nhận một truy vấn SQL(câu lệnh SELECT) và một mảng tham số nếu cần.
+
+
+
+        ///  Hàm ExecuteNonQuery(string query, object[] parameter = null):
+        ///  Hàm này được sử dụng để thực hiện các truy vấn không trả về dữ liệu (câu lệnh INSERT, UPDATE hoặc DELETE).
+
+
+        ///  Hàm ExecuteScalar(string query, object[] parameter = null):
+        ///  Hàm này được sử dụng khi bạn muốn lấy một giá trị duy nhất từ cơ sở dữ liệu, ví dụ như lấy tổng hoặc số lượng dựa trên truy vấn.
+
+
+
+
+        string strCnn = "Data source= LAPTOP-021AUJCB\\SQLEXPRESS02 ;database= Sellphones ;User ID=sa;Password=123;";
         private static DataProvider instance;
 
         public static DataProvider Instance

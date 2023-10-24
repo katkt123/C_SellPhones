@@ -60,31 +60,32 @@
             // label_QuanLi
             // 
             label_QuanLi.AutoSize = true;
-            label_QuanLi.Font = new Font("Segoe UI", 30F, FontStyle.Regular, GraphicsUnit.Point);
+            label_QuanLi.Font = new Font("Times New Roman", 34.2F, FontStyle.Regular, GraphicsUnit.Point);
             label_QuanLi.Location = new Point(3, 6);
             label_QuanLi.Name = "label_QuanLi";
-            label_QuanLi.Size = new Size(198, 67);
+            label_QuanLi.Size = new Size(226, 65);
             label_QuanLi.TabIndex = 3;
-            label_QuanLi.Text = "Quản Lí";
+            label_QuanLi.Text = "Quản Lý";
             label_QuanLi.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label_MaNV
             // 
             label_MaNV.AutoSize = true;
+            label_MaNV.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
             label_MaNV.Location = new Point(723, 29);
             label_MaNV.Name = "label_MaNV";
-            label_MaNV.Size = new Size(61, 20);
+            label_MaNV.Size = new Size(0, 22);
             label_MaNV.TabIndex = 1;
-            label_MaNV.Text = "Mã NV :";
             label_MaNV.Click += label1_Click;
             // 
             // button_Thoat
             // 
+            button_Thoat.AllowDrop = true;
+            button_Thoat.BackgroundImage = (Image)resources.GetObject("button_Thoat.BackgroundImage");
             button_Thoat.Location = new Point(883, 9);
             button_Thoat.Name = "button_Thoat";
             button_Thoat.Size = new Size(94, 60);
             button_Thoat.TabIndex = 0;
-            button_Thoat.Text = "button1";
             button_Thoat.UseVisualStyleBackColor = true;
             // 
             // panel_UC
@@ -107,6 +108,7 @@
             pictureBox.Location = new Point(0, 3);
             pictureBox.Name = "pictureBox";
             pictureBox.Size = new Size(200, 80);
+            pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.TabIndex = 6;
             pictureBox.TabStop = false;
             // 

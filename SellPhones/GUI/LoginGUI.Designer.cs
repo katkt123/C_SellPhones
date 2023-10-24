@@ -40,6 +40,7 @@
             textBox_TK = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            label_Error = new Label();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -51,7 +52,7 @@
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(607, 603);
+            panel1.Size = new Size(553, 603);
             panel1.TabIndex = 0;
             // 
             // panel2
@@ -69,6 +70,7 @@
             // 
             panel3.BackColor = Color.White;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.Controls.Add(label_Error);
             panel3.Controls.Add(label_Forgot);
             panel3.Controls.Add(button_SignUp);
             panel3.Controls.Add(button_SignIn);
@@ -118,6 +120,8 @@
             textBox_MK.PasswordChar = '*';
             textBox_MK.Size = new Size(495, 27);
             textBox_MK.TabIndex = 3;
+            textBox_MK.Enter += textBox_MK_Enter;
+            textBox_MK.Leave += textBox_MK_Leave;
             // 
             // label3
             // 
@@ -136,6 +140,8 @@
             textBox_TK.Name = "textBox_TK";
             textBox_TK.Size = new Size(495, 27);
             textBox_TK.TabIndex = 1;
+            textBox_TK.Enter += textBox_TK_Enter;
+            textBox_TK.Leave += textBox_TK_Leave;
             // 
             // label2
             // 
@@ -157,6 +163,16 @@
             label1.Size = new Size(266, 62);
             label1.TabIndex = 2;
             label1.Text = "Đăng Nhập";
+            // 
+            // label_Error
+            // 
+            label_Error.AutoSize = true;
+            label_Error.BackColor = Color.PaleGoldenrod;
+            label_Error.ForeColor = Color.Red;
+            label_Error.Location = new Point(24, 281);
+            label_Error.Name = "label_Error";
+            label_Error.Size = new Size(0, 20);
+            label_Error.TabIndex = 7;
             // 
             // LoginGUI
             // 
@@ -189,5 +205,6 @@
         private Button button_SignUp;
         private Button button_SignIn;
         private Label label_Forgot;
+        private Label label_Error;
     }
 }
