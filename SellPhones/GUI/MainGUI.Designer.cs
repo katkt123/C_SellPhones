@@ -35,8 +35,8 @@
             label_MaNV = new Label();
             button_Thoat = new Button();
             panel_UC = new Panel();
-            PanelTools = new FlowLayoutPanel();
             pictureBox = new PictureBox();
+            PanelTools = new FlowLayoutPanel();
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
@@ -49,6 +49,7 @@
             // 
             // panel2
             // 
+            panel2.BackColor = Color.PaleGoldenrod;
             panel2.Controls.Add(label_QuanLi);
             panel2.Controls.Add(label_MaNV);
             panel2.Controls.Add(button_Thoat);
@@ -81,12 +82,13 @@
             // button_Thoat
             // 
             button_Thoat.AllowDrop = true;
+            button_Thoat.BackColor = Color.PaleGoldenrod;
             button_Thoat.BackgroundImage = (Image)resources.GetObject("button_Thoat.BackgroundImage");
             button_Thoat.Location = new Point(883, 9);
             button_Thoat.Name = "button_Thoat";
             button_Thoat.Size = new Size(94, 60);
             button_Thoat.TabIndex = 0;
-            button_Thoat.UseVisualStyleBackColor = true;
+            button_Thoat.UseVisualStyleBackColor = false;
             // 
             // panel_UC
             // 
@@ -95,32 +97,36 @@
             panel_UC.Size = new Size(980, 500);
             panel_UC.TabIndex = 3;
             // 
-            // PanelTools
-            // 
-            PanelTools.Location = new Point(0, 91);
-            PanelTools.Name = "PanelTools";
-            PanelTools.Size = new Size(200, 500);
-            PanelTools.TabIndex = 5;
-            // 
             // pictureBox
             // 
             pictureBox.Image = (Image)resources.GetObject("pictureBox.Image");
-            pictureBox.Location = new Point(0, 3);
+            pictureBox.Location = new Point(3, 3);
             pictureBox.Name = "pictureBox";
             pictureBox.Size = new Size(200, 80);
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.TabIndex = 6;
             pictureBox.TabStop = false;
             // 
+            // PanelTools
+            // 
+            PanelTools.AutoScroll = true;
+            PanelTools.BackColor = Color.PaleGoldenrod;
+            PanelTools.Location = new Point(0, 91);
+            PanelTools.Name = "PanelTools";
+            PanelTools.Size = new Size(200, 500);
+            PanelTools.TabIndex = 7;
+            // 
             // MainGUI
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1197, 603);
-            Controls.Add(pictureBox);
             Controls.Add(PanelTools);
+            Controls.Add(pictureBox);
             Controls.Add(panel_UC);
             Controls.Add(panel2);
+            MaximumSize = new Size(1215, 650);
+            MinimumSize = new Size(1215, 650);
             Name = "MainGUI";
             Text = "MainGUI";
             Load += MainGUI_Load;
@@ -139,7 +145,7 @@
         private Button button_Thoat;
         private Label label_MaNV;
         private Label label_QuanLi;
-        private FlowLayoutPanel PanelTools;
         private PictureBox pictureBox;
+        private FlowLayoutPanel PanelTools;
     }
 }

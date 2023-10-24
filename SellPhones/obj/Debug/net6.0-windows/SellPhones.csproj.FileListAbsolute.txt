@@ -25,3 +25,4 @@ C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\bin\Debug\net6.0-windows\runtimes\
 C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\bin\Debug\net6.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\obj\Debug\net6.0-windows\SellPhones.csproj.AssemblyReference.cache
 C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\obj\Debug\net6.0-windows\SellPhones.csproj.CopyComplete
+C:\SGU\Nam3 HK1\C#\Doan\SellPhones\SellPhones\obj\Debug\net6.0-windows\SellPhones.GUI.RegisterGUI.resources

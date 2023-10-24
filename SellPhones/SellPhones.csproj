@@ -10,8 +10,6 @@
 
   <ItemGroup>
     <Folder Include="Comp\" />
-    <Folder Include="DTO\" />
-    <Folder Include="BUS\" />
   </ItemGroup>
 
   <ItemGroup>

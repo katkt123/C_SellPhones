@@ -24,6 +24,15 @@ namespace SellPhones.GUI
             InitializeComponent();
             AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
             AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
             SolveEvent();
 
         }
@@ -41,10 +50,10 @@ namespace SellPhones.GUI
             btn.Text = buttonName;
             btn.Size = new Size(200, 50);
             btn.Padding = new Padding(5, 0, 0, 0);
-            btn.BackColor = Color.FromArgb(80, 130, 100);
-            btn.ForeColor = Color.White;
+            btn.BackColor = Color.FromArgb(238, 232, 170);
+            btn.ForeColor = Color.Black;
             btn.Font = new Font(btn.Font.Name, 14, FontStyle.Bold);
-            btn.FlatStyle = FlatStyle.Flat;
+            btn.FlatStyle = FlatStyle.Popup;
             btn.TextAlign = ContentAlignment.MiddleLeft;
             btn.TextImageRelation = TextImageRelation.ImageBeforeText;
             btn.Image = null;

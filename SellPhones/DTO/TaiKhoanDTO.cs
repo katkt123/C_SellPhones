@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SellPhones.DTO
 {
-    internal class TaiKhoanDTO
+    public class TaiKhoanDTO
     {
     }
 }
