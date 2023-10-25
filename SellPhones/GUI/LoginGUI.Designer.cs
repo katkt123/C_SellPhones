@@ -111,6 +111,7 @@
             button_SignUp.TabIndex = 5;
             button_SignUp.Text = "Đăng Ký";
             button_SignUp.UseVisualStyleBackColor = true;
+            button_SignUp.Click += button_SignUp_Click;
             // 
             // button_SignIn
             // 

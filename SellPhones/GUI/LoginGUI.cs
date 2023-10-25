@@ -1,4 +1,5 @@
 ﻿using Sellphone.DAO;
+using SellPhones.BUS;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,6 +16,7 @@ namespace SellPhones.GUI
 {
     public partial class LoginGUI : Form
     {
+        private LoginBUS lgBUS;
 
         public LoginGUI()
         {
@@ -43,7 +45,8 @@ namespace SellPhones.GUI
         {
             string name = textBox_TK.Text;
             string pass = textBox_MK.Text;
-            DataTable dt = LoginDAO.Instance.Login(name, pass);
+            DataTable dt = lgBUS.Login(name, pass);
+            
             if (dt.Rows.Count <= 0)
             {
                 label_Error.Text = "Lỗi: Tên Đăng Nhập Hoặc Mật Khẩu Không Đúng";
@@ -51,16 +54,12 @@ namespace SellPhones.GUI
             }
             else
             {
-                string text = Convert.ToString(dt.Rows[0][4]);
-                string[] subs = text.Split(' ');
-                string permission = subs[0];
-                if (String.Equals(permission, "AD") || String.Equals(permission, "NV"))
+                string id = Convert.ToString(dt.Rows[0][0]);
+                string subs = id.Substring(0, 2);
+                lgBUS.active(id);
+                if (String.Equals(subs, "AD") || String.Equals(subs, "NV"))
                     return true;
-                else
-                {
-                    MessageBox.Show("You dont have permission to login here");
-                    return false;
-                }
+                else return false;
             }
         }
 
@@ -91,7 +90,7 @@ namespace SellPhones.GUI
         private void textBox_MK_Enter(object sender, EventArgs e)
         {
 
-            if (textBox_MK.Text == "Password")
+            if (textBox_MK.Text == "PassWord")
             {
                 textBox_MK.ForeColor = System.Drawing.Color.Black;
                 textBox_MK.Text = "";
@@ -111,12 +110,21 @@ namespace SellPhones.GUI
         {
             //if (valid() && login())
             //{
-                this.Hide();
-                MainGUI main = new MainGUI();
-                main.StartPosition = FormStartPosition.CenterScreen;
-                main.ShowDialog();
-                this.Close();
+            this.Hide();
+            MainGUI main = new MainGUI();
+            main.StartPosition = FormStartPosition.CenterScreen;
+            main.ShowDialog();
+            this.Close();
             //}
+        }
+
+        private void button_SignUp_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            RegisterGUI rf= new RegisterGUI();
+            rf.StartPosition = FormStartPosition.CenterScreen;
+            rf.ShowDialog();
+            this.Close();
         }
     }
 }

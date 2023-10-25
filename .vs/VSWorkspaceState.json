@@ -2,10 +2,12 @@
   "ExpandedNodes": [
     "",
     "\\SellPhones",
+    "\\SellPhones\\BUS",
     "\\SellPhones\\DAO",
     "\\SellPhones\\GUI",
-    "\\SellPhones\\GUI\\UserControls"
+    "\\SellPhones\\GUI\\UserControls",
+    "\\SQL"
   ],
-  "SelectedNode": "\\SellPhones\\GUI\\LoginGUI.cs",
+  "SelectedNode": "\\SellPhones\\DAO\\LoginDAO.cs",
   "PreviewInSolutionExplorer": false
 }

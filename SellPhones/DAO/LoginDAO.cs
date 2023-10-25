@@ -23,15 +23,18 @@ namespace Sellphone.DAO
         }
         public DataTable Login(string name, string password)
         {
-            string query = "Select * from TaiKhoan where tenTK = @tenTK and matkhau = @matkhau ";
+            string query = "Select * from TaiKhoan where TenDangNhap = @tenTK and MatKhau = @matkhau ";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { name, password });
         }
 
-        public bool isUserNameExist(string username)
+        
+        
+        public bool active(string id)
         {
-            string query = "Select * from TaiKhoan where tenTK = @tenTK ";
-            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
-            return dt.Rows.Count > 0;
+            int result = 0;
+            string query = "update TAIKHOAN set trangthai = 1 where MaTK = @id";
+            result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+            return result > 0;
         }
     }
 }
