@@ -46,7 +46,7 @@ namespace SellPhones.GUI
             string name = textBox_TK.Text;
             string pass = textBox_MK.Text;
             DataTable dt = lgBUS.Login(name, pass);
-            
+
             if (dt.Rows.Count <= 0)
             {
                 label_Error.Text = "Lỗi: Tên Đăng Nhập Hoặc Mật Khẩu Không Đúng";
@@ -108,20 +108,27 @@ namespace SellPhones.GUI
 
         private void button_SignIn_Click(object sender, EventArgs e)
         {
-            //if (valid() && login())
-            //{
-            this.Hide();
-            MainGUI main = new MainGUI();
-            main.StartPosition = FormStartPosition.CenterScreen;
-            main.ShowDialog();
-            this.Close();
-            //}
+
+            if (valid() && login())
+            {
+                //string name = textBox_TK.Text;
+                //string pass = textBox_MK.Text;
+                //DataTable lg= lgBUS.Login(name, pass);
+                //string id = Convert.ToString(lg.Rows[0][0]);
+                //lgBUS.active(id);
+                // đóng khung
+                this.Hide();
+                MainGUI main = new MainGUI();
+                main.StartPosition = FormStartPosition.CenterScreen;
+                main.ShowDialog();
+                this.Close();
+            }
         }
 
         private void button_SignUp_Click(object sender, EventArgs e)
         {
             this.Hide();
-            RegisterGUI rf= new RegisterGUI();
+            RegisterGUI rf = new RegisterGUI();
             rf.StartPosition = FormStartPosition.CenterScreen;
             rf.ShowDialog();
             this.Close();

@@ -132,6 +132,7 @@
             textBox_MK.PasswordChar = '*';
             textBox_MK.Size = new Size(495, 27);
             textBox_MK.TabIndex = 3;
+            textBox_MK.Text = "PassWord";
             textBox_MK.Enter += textBox_MK_Enter;
             textBox_MK.Leave += textBox_MK_Leave;
             // 
@@ -152,6 +153,7 @@
             textBox_TK.Name = "textBox_TK";
             textBox_TK.Size = new Size(495, 27);
             textBox_TK.TabIndex = 1;
+            textBox_TK.Text = "UserName";
             textBox_TK.Enter += textBox_TK_Enter;
             textBox_TK.Leave += textBox_TK_Leave;
             // 

@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            txtError = new TextBox();
             textBox_ReMK = new TextBox();
             label7 = new Label();
             textBox_SDT = new TextBox();
@@ -50,6 +51,7 @@
             // 
             panel1.BackColor = Color.PaleGoldenrod;
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(txtError);
             panel1.Controls.Add(textBox_ReMK);
             panel1.Controls.Add(label7);
             panel1.Controls.Add(textBox_SDT);
@@ -69,6 +71,17 @@
             panel1.Size = new Size(482, 604);
             panel1.TabIndex = 0;
             // 
+            // txtError
+            // 
+            txtError.BackColor = Color.PaleGoldenrod;
+            txtError.Font = new Font("Times New Roman", 10.2F, FontStyle.Regular, GraphicsUnit.Point);
+            txtError.ForeColor = Color.Red;
+            txtError.Location = new Point(31, 527);
+            txtError.Multiline = true;
+            txtError.Name = "txtError";
+            txtError.Size = new Size(429, 27);
+            txtError.TabIndex = 15;
+            // 
             // textBox_ReMK
             // 
             textBox_ReMK.Location = new Point(31, 276);
@@ -76,6 +89,9 @@
             textBox_ReMK.PasswordChar = '*';
             textBox_ReMK.Size = new Size(430, 27);
             textBox_ReMK.TabIndex = 13;
+            textBox_ReMK.Text = "Re-PassWord";
+            textBox_ReMK.Enter += textBox_ReMK_Enter;
+            textBox_ReMK.Leave += textBox_ReMK_Leave;
             // 
             // label7
             // 
@@ -93,6 +109,9 @@
             textBox_SDT.Name = "textBox_SDT";
             textBox_SDT.Size = new Size(430, 27);
             textBox_SDT.TabIndex = 11;
+            textBox_SDT.Text = "Phone-Number";
+            textBox_SDT.Enter += textBox_SDT_Enter;
+            textBox_SDT.Leave += textBox_SDT_Leave;
             // 
             // textBox_DiaChi
             // 
@@ -100,6 +119,9 @@
             textBox_DiaChi.Name = "textBox_DiaChi";
             textBox_DiaChi.Size = new Size(430, 27);
             textBox_DiaChi.TabIndex = 10;
+            textBox_DiaChi.Text = "Address";
+            textBox_DiaChi.Enter += textBox_DiaChi_Enter;
+            textBox_DiaChi.Leave += textBox_DiaChi_Leave;
             // 
             // textBox_Name
             // 
@@ -107,6 +129,9 @@
             textBox_Name.Name = "textBox_Name";
             textBox_Name.Size = new Size(430, 27);
             textBox_Name.TabIndex = 9;
+            textBox_Name.Text = "FullName";
+            textBox_Name.Enter += textBox_Name_Enter;
+            textBox_Name.Leave += textBox_Name_Leave;
             // 
             // textBox_MK
             // 
@@ -115,6 +140,9 @@
             textBox_MK.PasswordChar = '*';
             textBox_MK.Size = new Size(430, 27);
             textBox_MK.TabIndex = 8;
+            textBox_MK.Text = "PassWord";
+            textBox_MK.Enter += textBox_MK_Enter;
+            textBox_MK.Leave += textBox_MK_Leave;
             // 
             // label6
             // 
@@ -162,6 +190,9 @@
             textBox_TK.Name = "textBox_TK";
             textBox_TK.Size = new Size(430, 27);
             textBox_TK.TabIndex = 3;
+            textBox_TK.Text = "UserName";
+            textBox_TK.Enter += textBox_TK_Enter;
+            textBox_TK.Leave += textBox_TK_Leave;
             // 
             // label2
             // 
@@ -176,7 +207,7 @@
             // button_Register
             // 
             button_Register.BackColor = Color.Gold;
-            button_Register.Location = new Point(125, 547);
+            button_Register.Location = new Point(125, 557);
             button_Register.Name = "button_Register";
             button_Register.Size = new Size(233, 42);
             button_Register.TabIndex = 1;
@@ -226,5 +257,6 @@
         private Label label6;
         private Label label7;
         private TextBox textBox_ReMK;
+        private TextBox txtError;
     }
 }

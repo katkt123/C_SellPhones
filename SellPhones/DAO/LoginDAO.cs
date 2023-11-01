@@ -21,6 +21,7 @@ namespace Sellphone.DAO
             }
             private set { instance = value; }
         }
+        private LoginDAO() { }
         public DataTable Login(string name, string password)
         {
             string query = "Select * from TaiKhoan where TenDangNhap = @tenTK and MatKhau = @matkhau ";
