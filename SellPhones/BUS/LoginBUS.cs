@@ -11,7 +11,7 @@ namespace SellPhones.BUS
     public class LoginBUS
     {
         private static LoginBUS instance;
-        private LoginDAO lgDAO;
+
 
         public static LoginBUS Instance
         {
@@ -26,18 +26,30 @@ namespace SellPhones.BUS
 
         public DataTable Login(string name, string password)
         {
-            return lgDAO.Login(name, password);
+            return LoginDAO.Instance.Login(name, password);
         }
 
-        public String active(String id)
+        public String active(string id)
         {
-            if (lgDAO.active(id))
+            if (LoginDAO.Instance.active(id))
             {
                 return "Tài Khoản Đăng Nhập Thành Công";
             }
             else return "Tài Khoản Đăng Nhập Thất Bại";
         }
+        public String unactive(string id)
+        {
+            if (LoginDAO.Instance.unactive(id))
+            {
+                return "Tài Khoản Đăng Xuất Thành Công";
+            }
+            else return "Tài Khoản Đăng Xuất Thất Bại";
+        }
 
+        public DataTable id_active()
+        {
+            return LoginDAO.Instance.id_active();
+        }
 
     }
 }

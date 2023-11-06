@@ -16,7 +16,7 @@ namespace SellPhones.GUI
 {
     public partial class LoginGUI : Form
     {
-        private LoginBUS lgBUS;
+        
 
         public LoginGUI()
         {
@@ -45,7 +45,8 @@ namespace SellPhones.GUI
         {
             string name = textBox_TK.Text;
             string pass = textBox_MK.Text;
-            DataTable dt = lgBUS.Login(name, pass);
+            MessageBox.Show("Nhaap dung roi "+name+" "+pass+" ");
+            DataTable dt = LoginBUS.Instance.Login(name, pass);
 
             if (dt.Rows.Count <= 0)
             {
@@ -56,8 +57,8 @@ namespace SellPhones.GUI
             {
                 string id = Convert.ToString(dt.Rows[0][0]);
                 string subs = id.Substring(0, 2);
-                lgBUS.active(id);
-                if (String.Equals(subs, "AD") || String.Equals(subs, "NV"))
+                LoginBUS.Instance.active(id);
+                if (String.Equals(subs, "TK") || String.Equals(subs, "NV"))
                     return true;
                 else return false;
             }
@@ -111,12 +112,7 @@ namespace SellPhones.GUI
 
             if (valid() && login())
             {
-                //string name = textBox_TK.Text;
-                //string pass = textBox_MK.Text;
-                //DataTable lg= lgBUS.Login(name, pass);
-                //string id = Convert.ToString(lg.Rows[0][0]);
-                //lgBUS.active(id);
-                // đóng khung
+                MessageBox.Show("DangNhapThanhCong");
                 this.Hide();
                 MainGUI main = new MainGUI();
                 main.StartPosition = FormStartPosition.CenterScreen;

@@ -24,16 +24,28 @@ namespace Sellphone.DAO
         private LoginDAO() { }
         public DataTable Login(string name, string password)
         {
-            string query = "Select * from TaiKhoan where TenDangNhap = @tenTK and MatKhau = @matkhau ";
+            string query = "Select * from TaiKhoan where TenDangNhap = @TenDangNhap and MatKhau = @MatKhau ";
             return DataProvider.Instance.ExecuteQuery(query, new object[] { name, password });
         }
 
-        
+        public DataTable id_active()
+        {
+            string query = "Select * from TaiKhoan where TrangThai = 1";
+            return DataProvider.Instance.ExecuteQuery(query, new object[] { });
+        }
+
+        public bool unactive(string id)
+        {
+            int result = 0;
+            string query = "update TaiKhoan set TrangThai = 0 where MaTK = @id";
+            result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+            return result > 0;
+        }
         
         public bool active(string id)
         {
             int result = 0;
-            string query = "update TAIKHOAN set trangthai = 1 where MaTK = @id";
+            string query = "update TaiKhoan set TrangThai = 1 where MaTK = @id";
             result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
             return result > 0;
         }

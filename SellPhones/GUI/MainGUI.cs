@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.Logging;
+using SellPhones.BUS;
 using SellPhones.GUI.UserControls;
 using System;
 using System.Collections.Generic;
@@ -93,7 +94,12 @@ namespace SellPhones.GUI
         private void SolveEvent()
         {
             // Lấy mã nhân viên đã đăng nhập và thêm vào màn hình chính
-            manvLogined = "nv001"; // Đổi thành phương thức để lấy mã nhân viên
+            DataTable dt = LoginBUS.Instance.id_active();
+            string id = Convert.ToString(dt.Rows[0][0]);
+            int rowCount = dt.Rows.Count;
+
+            MessageBox.Show(rowCount+"             !!");
+            manvLogined = id; // Đổi thành phương thức để lấy mã nhân viên
             label_MaNV.Text = "Mã :" + manvLogined;
 
             // Sửa nút button_Thoat
@@ -102,16 +108,16 @@ namespace SellPhones.GUI
             button_Thoat.Font = new Font(button_Thoat.Font.Name, 14, FontStyle.Bold);
             button_Thoat.FlatStyle = FlatStyle.Flat;
 
-            button_Thoat.Click += (sender, e) =>
-            {
-                //(pictureBox.TopLevelControl as Form).Close();
-                this.Hide();
-                LoginGUI login = new LoginGUI();
-                login.StartPosition = FormStartPosition.CenterScreen;
-                login.ShowDialog();
-                this.Close();
+            //button_Thoat.Click += (sender, e) =>
+            //{
+            //    //(pictureBox.TopLevelControl as Form).Close();
+            //    this.Hide();
+            //    LoginGUI login = new LoginGUI();
+            //    login.StartPosition = FormStartPosition.CenterScreen;
+            //    login.ShowDialog();
+            //    this.Close();
 
-            };
+            //};
 
             // Xử lý hoạt ảnh đang hoạt động trên thanh công cụ
             int working = -1;
@@ -144,7 +150,20 @@ namespace SellPhones.GUI
 
         private void button_Thoat_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Bạn có muốn đăng xuất không?", "Xác nhận đăng xuất", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (result == DialogResult.Yes)
+            {
+                DataTable dt = LoginBUS.Instance.id_active();
+                string id = Convert.ToString(dt.Rows[0][0]);
+                LoginBUS.Instance.unactive(id);
+                this.Hide();
+                LoginGUI lg = new LoginGUI();
+                lg.StartPosition = FormStartPosition.CenterScreen;
+                lg.ShowDialog();
+                this.Close();
+            }
+            
         }
     }
 }

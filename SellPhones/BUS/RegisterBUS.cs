@@ -10,15 +10,28 @@ namespace SellPhones.BUS
 {
     public class RegisterBUS
     {
-        private RegisterDAO rgDAO;
+        private static RegisterBUS instance;
+
+
+        public static RegisterBUS Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new RegisterBUS();
+                return RegisterBUS.instance;
+            }
+            private set { RegisterBUS.instance = value; }
+        }
+        
 
         public string Register(string user, string pass, string name, string address, string phone)
         {
-            if (rgDAO.isUserNameExist(user))
+            if (RegisterDAO.Instance.isUserNameExist(user))
             {
                 return "Tên Đăng Nhập Đã Được Tạo";
             }
-            else if (rgDAO.Register(user, pass, name, address, phone)) return "Đăng Ký Thành Công";
+            else if (RegisterDAO.Instance.Register(user, pass, name, address, phone)) return "Đăng Ký Thành Công";
             else return "Đăng Ký Thất Bại";
             
         } 

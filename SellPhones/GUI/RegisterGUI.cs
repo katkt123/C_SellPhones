@@ -16,7 +16,7 @@ namespace SellPhones.GUI
 {
     public partial class RegisterGUI : Form
     {
-        private RegisterBUS rgBUS;
+        
         public RegisterGUI()
         {
             InitializeComponent();
@@ -37,7 +37,7 @@ namespace SellPhones.GUI
                 string diachi = textBox_DiaChi.Text;
                 string sdt = textBox_SDT.Text;
 
-                rgBUS.Register(user, pass, name, diachi, sdt);
+                RegisterBUS.Instance.Register(user, pass, name, diachi, sdt);
 
                 this.Hide();
                 LoginGUI lg = new LoginGUI();

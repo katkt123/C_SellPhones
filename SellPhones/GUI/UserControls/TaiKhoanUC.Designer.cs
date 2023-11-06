@@ -43,20 +43,20 @@
             textBox_TK = new TextBox();
             label1 = new Label();
             panel1 = new Panel();
-            dataGridView1 = new DataGridView();
+            Grid_TaiKhoan = new DataGridView();
             tabPage_Quyen = new TabPage();
-            panel3 = new Panel();
-            dataGridView2 = new DataGridView();
-            comboBox2 = new ComboBox();
             button6 = new Button();
+            comboBox2 = new ComboBox();
+            panel3 = new Panel();
+            Grid_Quyen = new DataGridView();
             tabControl1.SuspendLayout();
             tabPage_TK.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Grid_TaiKhoan).BeginInit();
             tabPage_Quyen.SuspendLayout();
             panel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)Grid_Quyen).BeginInit();
             SuspendLayout();
             // 
             // tabControl1
@@ -97,7 +97,7 @@
             button_Refresh.Size = new Size(39, 39);
             button_Refresh.TabIndex = 15;
             button_Refresh.UseVisualStyleBackColor = true;
-            button_Refresh.Click += button4_Click;
+            button_Refresh.Click += button_Refresh_Click;
             // 
             // button_Search
             // 
@@ -132,6 +132,7 @@
             button_Sua.TabIndex = 10;
             button_Sua.Text = "Sửa";
             button_Sua.UseVisualStyleBackColor = true;
+            button_Sua.Click += button_Sua_Click;
             // 
             // button_Xoa
             // 
@@ -141,7 +142,7 @@
             button_Xoa.TabIndex = 9;
             button_Xoa.Text = "Xóa";
             button_Xoa.UseVisualStyleBackColor = true;
-            button_Xoa.Click += button2_Click;
+            button_Xoa.Click += button_Xoa_Click;
             // 
             // button_Them
             // 
@@ -151,7 +152,7 @@
             button_Them.TabIndex = 8;
             button_Them.Text = "Thêm";
             button_Them.UseVisualStyleBackColor = true;
-            button_Them.Click += button1_Click;
+            button_Them.Click += button_Them_Click;
             // 
             // panel2
             // 
@@ -201,23 +202,24 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(dataGridView1);
+            panel1.Controls.Add(Grid_TaiKhoan);
             panel1.Dock = DockStyle.Bottom;
             panel1.Location = new Point(3, 199);
             panel1.Name = "panel1";
             panel1.Size = new Size(966, 265);
             panel1.TabIndex = 1;
             // 
-            // dataGridView1
+            // Grid_TaiKhoan
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Dock = DockStyle.Fill;
-            dataGridView1.Location = new Point(0, 0);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.RowTemplate.Height = 29;
-            dataGridView1.Size = new Size(966, 265);
-            dataGridView1.TabIndex = 0;
+            Grid_TaiKhoan.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Grid_TaiKhoan.Dock = DockStyle.Fill;
+            Grid_TaiKhoan.Location = new Point(0, 0);
+            Grid_TaiKhoan.Name = "Grid_TaiKhoan";
+            Grid_TaiKhoan.RowHeadersWidth = 51;
+            Grid_TaiKhoan.RowTemplate.Height = 29;
+            Grid_TaiKhoan.Size = new Size(966, 265);
+            Grid_TaiKhoan.TabIndex = 0;
+            Grid_TaiKhoan.CellContentClick += Grid_TaiKhoan_CellContentClick;
             // 
             // tabPage_Quyen
             // 
@@ -232,26 +234,14 @@
             tabPage_Quyen.Text = "Quyền";
             tabPage_Quyen.UseVisualStyleBackColor = true;
             // 
-            // panel3
+            // button6
             // 
-            panel3.Controls.Add(dataGridView2);
-            panel3.Dock = DockStyle.Bottom;
-            panel3.Location = new Point(3, 156);
-            panel3.Name = "panel3";
-            panel3.Size = new Size(966, 308);
-            panel3.TabIndex = 0;
-            panel3.Paint += panel3_Paint;
-            // 
-            // dataGridView2
-            // 
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Dock = DockStyle.Fill;
-            dataGridView2.Location = new Point(0, 0);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.RowTemplate.Height = 29;
-            dataGridView2.Size = new Size(966, 308);
-            dataGridView2.TabIndex = 0;
+            button6.Location = new Point(359, 68);
+            button6.Name = "button6";
+            button6.Size = new Size(238, 54);
+            button6.TabIndex = 2;
+            button6.Text = "Cấp Quyền";
+            button6.UseVisualStyleBackColor = true;
             // 
             // comboBox2
             // 
@@ -262,14 +252,26 @@
             comboBox2.Size = new Size(211, 28);
             comboBox2.TabIndex = 1;
             // 
-            // button6
+            // panel3
             // 
-            button6.Location = new Point(359, 68);
-            button6.Name = "button6";
-            button6.Size = new Size(238, 54);
-            button6.TabIndex = 2;
-            button6.Text = "Cấp Quyền";
-            button6.UseVisualStyleBackColor = true;
+            panel3.Controls.Add(Grid_Quyen);
+            panel3.Dock = DockStyle.Bottom;
+            panel3.Location = new Point(3, 156);
+            panel3.Name = "panel3";
+            panel3.Size = new Size(966, 308);
+            panel3.TabIndex = 0;
+            panel3.Paint += panel3_Paint;
+            // 
+            // Grid_Quyen
+            // 
+            Grid_Quyen.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            Grid_Quyen.Dock = DockStyle.Fill;
+            Grid_Quyen.Location = new Point(0, 0);
+            Grid_Quyen.Name = "Grid_Quyen";
+            Grid_Quyen.RowHeadersWidth = 51;
+            Grid_Quyen.RowTemplate.Height = 29;
+            Grid_Quyen.Size = new Size(966, 308);
+            Grid_Quyen.TabIndex = 0;
             // 
             // TaiKhoanUC
             // 
@@ -284,10 +286,10 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Grid_TaiKhoan).EndInit();
             tabPage_Quyen.ResumeLayout(false);
             panel3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)Grid_Quyen).EndInit();
             ResumeLayout(false);
         }
 
@@ -297,7 +299,7 @@
         private TabPage tabPage_TK;
         private TabPage tabPage_Quyen;
         private Panel panel1;
-        private DataGridView dataGridView1;
+        private DataGridView Grid_TaiKhoan;
         private Label label1;
         private Panel panel2;
         private Button button_Them;
@@ -311,7 +313,7 @@
         private ComboBox comboBox_Type;
         private Button button_Refresh;
         private Panel panel3;
-        private DataGridView dataGridView2;
+        private DataGridView Grid_Quyen;
         private Button button6;
         private ComboBox comboBox2;
     }

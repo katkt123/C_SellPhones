@@ -3,11 +3,12 @@
     "",
     "\\SellPhones",
     "\\SellPhones\\BUS",
+    "\\SellPhones\\Comp",
     "\\SellPhones\\DAO",
     "\\SellPhones\\GUI",
     "\\SellPhones\\GUI\\UserControls",
     "\\SQL"
   ],
-  "SelectedNode": "\\SellPhones\\GUI\\UserControls\\TaiKhoanUC.cs",
+  "SelectedNode": "\\SellPhones\\BUS\\LoginBUS.cs",
   "PreviewInSolutionExplorer": false
 }

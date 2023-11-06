@@ -1,12 +1,74 @@
-﻿using System;
+﻿using SellPhones.DAO;
+using System;
 using System.Collections.Generic;
+using System.Data;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Linq;
 
 namespace SellPhones.BUS
 {
-    internal class TaiKhoanBUS
+    public class TaiKhoanBUS
     {
+        private static TaiKhoanBUS instance;
+
+
+        public static TaiKhoanBUS Instance
+        {
+            get
+            {
+                if (instance == null)
+                    instance = new TaiKhoanBUS();
+                return TaiKhoanBUS.instance;
+            }
+            private set { TaiKhoanBUS.instance = value; }
+        }
+
+        public DataTable getAllTaiKhoan()
+        {
+            return TaiKhoanDAO.Instance.getAllTaiKhoan();
+        }
+        public DataTable getAllQuyen()
+        {
+            return TaiKhoanDAO.Instance.getAllQuyen();
+        }
+        public string insertTaiKhoan(string user, string pass)
+        {
+            if (TaiKhoanDAO.Instance.isUserNameExist(user))
+            {
+                return "Tên Đăng Nhập Đã Được Tạo";
+            }
+            else if (TaiKhoanDAO.Instance.insertTaiKhoan(user, pass)) return "Thêm Tài Khoản Thành Công";
+            else return "Thêm Tài Khoản Thất Bại";
+        }
+
+        public string DelTaiKhoan(string id)
+        {
+            if (TaiKhoanDAO.Instance.DelTaiKhoan(id))
+            {
+                return "Xóa Thành Công";
+            }
+            else return "Xóa Thất Bại";
+
+        }
+        public string UpdateTaiKhoan(string user,string pass)
+        {
+            if (TaiKhoanDAO.Instance.UpdateTaiKhoan(user, pass))
+            {
+                return "Cập nhật thành công";
+            }
+            else return "Cập nhật thất bại";
+        }
+        public string addQuyen(string id, string quyen)
+        {
+            if (TaiKhoanDAO.Instance.addQuyen(id, quyen))
+            {
+                return "Thêm quyền thành công";
+            }
+            else return "Thêm quyền thất bại";
+        }
+
     }
 }
