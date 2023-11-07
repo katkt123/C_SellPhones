@@ -45,8 +45,8 @@
             panel1 = new Panel();
             Grid_TaiKhoan = new DataGridView();
             tabPage_Quyen = new TabPage();
-            button6 = new Button();
-            comboBox2 = new ComboBox();
+            button_CapQuyen = new Button();
+            comboBox_Quyen = new ComboBox();
             panel3 = new Panel();
             Grid_Quyen = new DataGridView();
             tabControl1.SuspendLayout();
@@ -223,8 +223,8 @@
             // 
             // tabPage_Quyen
             // 
-            tabPage_Quyen.Controls.Add(button6);
-            tabPage_Quyen.Controls.Add(comboBox2);
+            tabPage_Quyen.Controls.Add(button_CapQuyen);
+            tabPage_Quyen.Controls.Add(comboBox_Quyen);
             tabPage_Quyen.Controls.Add(panel3);
             tabPage_Quyen.Location = new Point(4, 29);
             tabPage_Quyen.Name = "tabPage_Quyen";
@@ -234,23 +234,24 @@
             tabPage_Quyen.Text = "Quyền";
             tabPage_Quyen.UseVisualStyleBackColor = true;
             // 
-            // button6
+            // button_CapQuyen
             // 
-            button6.Location = new Point(359, 68);
-            button6.Name = "button6";
-            button6.Size = new Size(238, 54);
-            button6.TabIndex = 2;
-            button6.Text = "Cấp Quyền";
-            button6.UseVisualStyleBackColor = true;
+            button_CapQuyen.Location = new Point(359, 68);
+            button_CapQuyen.Name = "button_CapQuyen";
+            button_CapQuyen.Size = new Size(238, 54);
+            button_CapQuyen.TabIndex = 2;
+            button_CapQuyen.Text = "Cấp Quyền";
+            button_CapQuyen.UseVisualStyleBackColor = true;
+            button_CapQuyen.Click += button_CapQuyen_Click;
             // 
-            // comboBox2
+            // comboBox_Quyen
             // 
-            comboBox2.FormattingEnabled = true;
-            comboBox2.Items.AddRange(new object[] { "Quản Lý", "Nhân Viên" });
-            comboBox2.Location = new Point(374, 22);
-            comboBox2.Name = "comboBox2";
-            comboBox2.Size = new Size(211, 28);
-            comboBox2.TabIndex = 1;
+            comboBox_Quyen.FormattingEnabled = true;
+            comboBox_Quyen.Items.AddRange(new object[] { "Quản Lý", "Nhân Viên", "Khách Hàng" });
+            comboBox_Quyen.Location = new Point(374, 22);
+            comboBox_Quyen.Name = "comboBox_Quyen";
+            comboBox_Quyen.Size = new Size(211, 28);
+            comboBox_Quyen.TabIndex = 1;
             // 
             // panel3
             // 
@@ -314,7 +315,7 @@
         private Button button_Refresh;
         private Panel panel3;
         private DataGridView Grid_Quyen;
-        private Button button6;
-        private ComboBox comboBox2;
+        private Button button_CapQuyen;
+        private ComboBox comboBox_Quyen;
     }
 }

@@ -37,8 +37,8 @@ namespace SellPhones.GUI.UserControls
                 MessageBoxIcon.Question);
                 if (dr == DialogResult.Yes)
                 {
-                    string maNV = Grid_TaiKhoan.SelectedRows[0].Cells["MaTK"].Value.ToString();
-                    TaiKhoanBUS.Instance.DelTaiKhoan(maNV);
+                    string maTK = Grid_TaiKhoan.SelectedRows[0].Cells["MaTK"].Value.ToString();
+                    TaiKhoanBUS.Instance.DelTaiKhoan(maTK);
                     Grid_TaiKhoan.Rows.Remove(Grid_TaiKhoan.SelectedRows[0]);
                     setNull();
                 }
@@ -111,7 +111,29 @@ namespace SellPhones.GUI.UserControls
         private void button_Sua_Click(object sender, EventArgs e)
         {
             TaiKhoanBUS.Instance.UpdateTaiKhoan(textBox_TK.Text, textBox_MK.Text);
-            loadTaiKhoanlist(); 
+            loadTaiKhoanlist();
+        }
+
+        private void button_CapQuyen_Click(object sender, EventArgs e)
+        {
+            if (Grid_Quyen.SelectedRows.Count > 0)
+            {
+                // Lấy ID từ dòng đã chọn trong DataGridView
+                string id = Grid_Quyen.SelectedRows[0].Cells["MaTK"].Value.ToString();
+
+                // Lấy quyền từ ComboBox
+                string quyen = comboBox_Quyen.SelectedItem.ToString();
+
+                // Gọi hàm để thêm quyền cho người dùng với thông tin đã lấy
+                TaiKhoanBUS.Instance.addQuyen(id, quyen);
+
+                MessageBox.Show("Cập Nhật Thành Công !!!");
+                loadQuyenlist();    
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng trước khi cấp quyền !!!!!");
+            }
         }
     }
 }

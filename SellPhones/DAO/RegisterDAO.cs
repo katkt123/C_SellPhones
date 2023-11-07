@@ -48,8 +48,9 @@ namespace SellPhones.DAO
 
             string query = "insert into TaiKhoan(MaTK,TenDangNhap,MatKhau,TrangThai) values( @MaTK , @TenDangNhap , @MatKhau , 0 )";
             result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, user,pass });
-            string query2 = "insert into KhachHang(MaKH,TenKH,DiaChi,SDT) values( @MaKH , @TenKH , @DiaChi , @SDT  )";
-            result = result + DataProvider.Instance.ExecuteNonQuery(query2, new object[] { id, name,address,phone });
+
+            string query2 = "insert into KhachHang(MaKH,TenKH,DiaChi,SDT,MaTK) values( @MaKH , @TenKH , @DiaChi , @SDT , @MaTK )";
+            result = result + DataProvider.Instance.ExecuteNonQuery(query2, new object[] { id2, name,address,phone, id});
             return result == 2;
 
         }
@@ -60,7 +61,7 @@ namespace SellPhones.DAO
             return dt.Rows.Count > 0;
         }
 
-
+        
 
     }
 }

@@ -37,14 +37,26 @@ namespace SellPhones.DAO
         public bool insertTaiKhoan(string user,string pass)
         {
             int trangthai = 0;
-            string query = "insert into TaiKhoan (TenDangNhap,MatKhau,TrangThai) values( @TenDangNhap , @MatKhau , @TrangThai)";
-            int result =  DataProvider.Instance.ExecuteNonQuery(query, new object[] { user, pass, trangthai });
-            return result == 1;
+            string getall = "select * from TaiKhoan";
+            DataTable list = DataProvider.Instance.ExecuteQuery(getall, new object[] { });
+            int row = list.Rows.Count + 1;
+            String id;
+            if (row >= 100 && row <= 999) id = "TK" + row.ToString();
+            else if (row >= 10 && row <= 99) id = "TK0" + row.ToString();
+            else if (row >= 1 && row <= 9) id = "TK00" + row.ToString();
+            else id = "TK" + row.ToString();
+
+            string query = "insert into TaiKhoan (MaTK,TenDangNhap,MatKhau,TrangThai) values( @id , @user , @pass ,0 )";
+            int result =  DataProvider.Instance.ExecuteNonQuery(query, new object[] { id,user, pass });
+
+            string query1 = "insert into Quyen (MaTK) values ( @id )";
+            result += DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
+            return result == 2;
         }
         public bool addQuyen(string id,string quyen)
         {
             
-            string query = "UPDATE Quyen SET Quyen = @Quyen WHERE MaTK = @MaTK";
+            string query = "UPDATE Quyen SET PhanQuyen = @PhanQuyen WHERE MaTK = @MaTK";
             int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { quyen , id });
             return result == 1;
         }
@@ -70,5 +82,7 @@ namespace SellPhones.DAO
             result = result +DataProvider.Instance.ExecuteNonQuery(query1, new object[] { id });
             return result == 2;
         }
+
+        
     }
 }
