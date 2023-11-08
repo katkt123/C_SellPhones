@@ -37,21 +37,25 @@ namespace SellPhones.DAO
             else if(row>=1 && row<=9) id = "TK00" + row.ToString();
             else id = "TK" + row.ToString();
 
-            string getall2 = "select * from NhanVien";
+            string getall2 = "select * from KhachHang";
             DataTable list2 = DataProvider.Instance.ExecuteQuery(getall2, new object[] { });
-            int row2 = list.Rows.Count + 1;
+            int row2 = list2.Rows.Count + 1;
             String id2;
-            if (row >= 100 && row <= 999) id2 = "KH" + row.ToString();
-            else if (row >= 10 && row <= 99) id2 = "KH0" + row.ToString();
-            else if (row >= 1 && row <= 9) id2 = "KH00" + row.ToString();
-            else id2 = "KH" + row.ToString();
+            if (row2 >= 100 && row2 <= 999) id2 = "KH" + row2.ToString();
+            else if (row2 >= 10 && row2 <= 99) id2 = "KH0" + row2.ToString();
+            else if (row2 >= 1 && row2 <= 9) id2 = "KH00" + row2.ToString();
+            else id2 = "KH" + row2.ToString();
 
             string query = "insert into TaiKhoan(MaTK,TenDangNhap,MatKhau,TrangThai) values( @MaTK , @TenDangNhap , @MatKhau , 0 )";
             result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, user,pass });
 
             string query2 = "insert into KhachHang(MaKH,TenKH,DiaChi,SDT,MaTK) values( @MaKH , @TenKH , @DiaChi , @SDT , @MaTK )";
             result = result + DataProvider.Instance.ExecuteNonQuery(query2, new object[] { id2, name,address,phone, id});
-            return result == 2;
+
+            string quyen = "Khách Hàng";
+            string query3 = "insert into Quyen(MaTK,PhanQuyen) values( @MaTK , @Quyen ) ";
+            result += DataProvider.Instance.ExecuteNonQuery(query3, new object[] { id,quyen });
+            return result == 3;
 
         }
         public bool isUserNameExist(string username)

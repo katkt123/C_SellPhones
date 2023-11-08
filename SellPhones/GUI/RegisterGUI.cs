@@ -16,7 +16,7 @@ namespace SellPhones.GUI
 {
     public partial class RegisterGUI : Form
     {
-        
+
         public RegisterGUI()
         {
             InitializeComponent();
@@ -26,11 +26,21 @@ namespace SellPhones.GUI
         {
 
         }
-
+        void setNull()
+        {
+            label_TK.Text = "";
+            label_ReMK.Text = "";
+            label_MK.Text = "";
+            label_Address.Text = "";
+            label_Phone.Text = "";
+            label_Name.Text = "";
+        }
         private void button_Register_Click(object sender, EventArgs e)
         {
+            setNull();
             if (valid())
             {
+                
                 string user = textBox_TK.Text;
                 string pass = textBox_MK.Text;
                 string name = textBox_Name.Text;
@@ -53,66 +63,85 @@ namespace SellPhones.GUI
             if (textBox_TK.Text == "")
             {
                 emptyFieldCount++;
-                txtError.Text = "Bạn Chưa Nhập Tài Khoản  \n ";
+                label_TK.Text = "X";
+
             }
 
             if (textBox_MK.Text == "")
             {
                 emptyFieldCount++;
-                txtError.Text = "Bạn Chưa Nhập Mật Khẩu \n";
-            }
+                label_MK.Text = "X";
 
-            if (textBox_MK.Text != textBox_ReMK.Text)
-            {
-                emptyFieldCount++;
-                txtError.Text = "Mật Khẩu Không Khớp \n";
             }
 
             if (textBox_Name.Text == "")
             {
                 emptyFieldCount++;
-                txtError.Text = "Bạn Chưa Nhập Họ Tên \n";
+                label_Name.Text = "X";
+
             }
 
             if (textBox_SDT.Text == "")
             {
                 emptyFieldCount++;
-                txtError.Text = "Bạn Chưa Nhập Số Điện Thoại \n";
+                label_Phone.Text = "X";
+
             }
 
             if (textBox_DiaChi.Text == "")
             {
                 emptyFieldCount++;
-                txtError.Text = "Bạn Chưa Nhập Địa Chỉ \n";
+                label_Address.Text = "X";
+
+            }
+
+            if (textBox_MK.Text != textBox_ReMK.Text)
+            {
+                emptyFieldCount++;
+                label_ReMK.Text = "X";
+                txtError.Text = "Mật khẩu không khớp. ";
+
+            }
+            if (TaiKhoanDAO.Instance.isUserNameExist(textBox_TK.Text))
+            {
+                emptyFieldCount++;
+                txtError.Text = "Tên đăng nhập đã tồn tại. ";
+
+            }
+            if (label_Address.Text == "X" || label_MK.Text == "X" || label_Name.Text == "X" || label_Phone.Text == "X" || label_ReMK.Text == "X" || label_TK.Text == "X")
+            {
+                return false;
             }
 
             // Kiểm tra số lượng trường trống
-            if (emptyFieldCount > 0)
+
+            else if (emptyFieldCount > 0)
             {
-                txtError.Text = $"Có {emptyFieldCount} Ô Chưa Được Nhập Lần Lượt Là :\n";
+                txtError.Text = "Thông tin chưa được nhập.";
                 return false;
             }
 
             txtError.Text = "";
             return true;
+
         }
 
         private void textBox_TK_Enter(object sender, EventArgs e)
         {
-            if (textBox_TK.Text == "UserName")
-            {
-                textBox_TK.ForeColor = System.Drawing.Color.Black;
-                textBox_TK.Text = "";
-            }
+            //if (textBox_TK.Text == "UserName")
+            //{
+            //    textBox_TK.ForeColor = System.Drawing.Color.Black;
+            //    textBox_TK.Text = "";
+            //}
         }
 
         private void textBox_TK_Leave(object sender, EventArgs e)
         {
-            if (textBox_TK.Text == "")
-            {
-                textBox_TK.ForeColor = System.Drawing.Color.Gray;
-                textBox_TK.Text = "UserName";
-            }
+            //if (textBox_TK.Text == "")
+            //{
+            //    textBox_TK.ForeColor = System.Drawing.Color.Gray;
+            //    textBox_TK.Text = "UserName";
+            //}
 
         }
 
@@ -127,83 +156,97 @@ namespace SellPhones.GUI
 
         private void textBox_MK_Leave(object sender, EventArgs e)
         {
-            if (textBox_MK.Text == "")
-            {
-                textBox_MK.ForeColor = System.Drawing.Color.Gray;
-                textBox_MK.Text = "PassWord";
-            }
+            //if (textBox_MK.Text == "")
+            //{
+            //    textBox_MK.ForeColor = System.Drawing.Color.Gray;
+            //    textBox_MK.Text = "PassWord";
+            //}
         }
 
         private void textBox_ReMK_Enter(object sender, EventArgs e)
         {
-            if (textBox_ReMK.Text == "Re-PassWord")
-            {
-                textBox_ReMK.ForeColor = System.Drawing.Color.Black;
-                textBox_ReMK.Text = "";
-            }
+            //if (textBox_ReMK.Text == "Re-PassWord")
+            //{
+            //    textBox_ReMK.ForeColor = System.Drawing.Color.Black;
+            //    textBox_ReMK.Text = "";
+            //}
         }
 
         private void textBox_ReMK_Leave(object sender, EventArgs e)
         {
-            if (textBox_ReMK.Text == "")
-            {
-                textBox_ReMK.ForeColor = System.Drawing.Color.Gray;
-                textBox_ReMK.Text = "Re-PassWord";
-            }
+            //if (textBox_ReMK.Text == "")
+            //{
+            //    textBox_ReMK.ForeColor = System.Drawing.Color.Gray;
+            //    textBox_ReMK.Text = "Re-PassWord";
+            //}
         }
 
         private void textBox_Name_Enter(object sender, EventArgs e)
         {
-            if (textBox_Name.Text == "FullName")
-            {
-                textBox_Name.ForeColor = System.Drawing.Color.Black;
-                textBox_Name.Text = "";
-            }
+            //if (textBox_Name.Text == "FullName")
+            //{
+            //    textBox_Name.ForeColor = System.Drawing.Color.Black;
+            //    textBox_Name.Text = "";
+            //}
         }
 
         private void textBox_Name_Leave(object sender, EventArgs e)
         {
-            if (textBox_Name.Text == "")
-            {
-                textBox_Name.ForeColor = System.Drawing.Color.Gray;
-                textBox_Name.Text = "FullName";
-            }
+            //if (textBox_Name.Text == "")
+            //{
+            //    textBox_Name.ForeColor = System.Drawing.Color.Gray;
+            //    textBox_Name.Text = "FullName";
+            //}
         }
 
         private void textBox_DiaChi_Enter(object sender, EventArgs e)
         {
-            if (textBox_DiaChi.Text == "Address")
-            {
-                textBox_DiaChi.ForeColor = System.Drawing.Color.Black;
-                textBox_DiaChi.Text = "";
-            }
+            //if (textBox_DiaChi.Text == "Address")
+            //{
+            //    textBox_DiaChi.ForeColor = System.Drawing.Color.Black;
+            //    textBox_DiaChi.Text = "";
+            //}
         }
 
         private void textBox_DiaChi_Leave(object sender, EventArgs e)
         {
-            if (textBox_DiaChi.Text == "")
-            {
-                textBox_DiaChi.ForeColor = System.Drawing.Color.Gray;
-                textBox_DiaChi.Text = "Address";
-            }
+            //if (textBox_DiaChi.Text == "")
+            //{
+            //    textBox_DiaChi.ForeColor = System.Drawing.Color.Gray;
+            //    textBox_DiaChi.Text = "Address";
+            //}
         }
 
         private void textBox_SDT_Enter(object sender, EventArgs e)
         {
-            if (textBox_SDT.Text == "Phone-Number")
-            {
-                textBox_SDT.ForeColor = System.Drawing.Color.Black;
-                textBox_SDT.Text = "";
-            }
+            //if (textBox_SDT.Text == "Phone-Number")
+            //{
+            //    textBox_SDT.ForeColor = System.Drawing.Color.Black;
+            //    textBox_SDT.Text = "";
+            //}
         }
 
         private void textBox_SDT_Leave(object sender, EventArgs e)
         {
-            if (textBox_SDT.Text == "")
-            {
-                textBox_SDT.ForeColor = System.Drawing.Color.Gray;
-                textBox_SDT.Text = "Phone-Number";
-            }
+            //if (textBox_SDT.Text == "")
+            //{
+            //    textBox_SDT.ForeColor = System.Drawing.Color.Gray;
+            //    textBox_SDT.Text = "Phone-Number";
+            //}
+        }
+
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void button_Back_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            LoginGUI lg = new LoginGUI();
+            lg.StartPosition = FormStartPosition.CenterScreen;
+            lg.ShowDialog();
+            this.Close();
         }
     }
 }

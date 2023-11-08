@@ -25,22 +25,22 @@ namespace SellPhones.GUI
             InitializeComponent();
             AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
             AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
             SolveEvent();
 
         }
 
         private void MainGUI_Load(object sender, EventArgs e)
         {
-
+            
         }
         private void AddComponent(string buttonName, UserControl userControlname, string path = null)
         {
@@ -53,7 +53,7 @@ namespace SellPhones.GUI
             btn.Padding = new Padding(5, 0, 0, 0);
             btn.BackColor = Color.FromArgb(238, 232, 170);
             btn.ForeColor = Color.Black;
-            btn.Font = new Font(btn.Font.Name, 14, FontStyle.Bold);
+            btn.Font = new Font(btn.Font.Name, 11, FontStyle.Bold);
             btn.FlatStyle = FlatStyle.Popup;
             btn.TextAlign = ContentAlignment.MiddleLeft;
             btn.TextImageRelation = TextImageRelation.ImageBeforeText;
@@ -165,5 +165,8 @@ namespace SellPhones.GUI
             }
             
         }
+        
+
+       
     }
 }

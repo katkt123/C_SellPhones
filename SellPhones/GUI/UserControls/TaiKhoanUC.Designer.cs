@@ -107,6 +107,7 @@
             button_Search.TabIndex = 14;
             button_Search.Text = "Tìm Kiếm";
             button_Search.UseVisualStyleBackColor = true;
+            button_Search.Click += button_Search_Click;
             // 
             // textBox_Search
             // 

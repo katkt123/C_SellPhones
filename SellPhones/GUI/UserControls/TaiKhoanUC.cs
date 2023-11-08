@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 
 namespace SellPhones.GUI.UserControls
 {
@@ -19,6 +20,7 @@ namespace SellPhones.GUI.UserControls
             InitializeComponent();
             loadTaiKhoanlist();
             loadQuyenlist();
+            setNull();
         }
 
         private void button_Them_Click(object sender, EventArgs e)
@@ -27,6 +29,11 @@ namespace SellPhones.GUI.UserControls
             string pass = textBox_MK.Text;
             TaiKhoanBUS.Instance.insertTaiKhoan(user, pass);
             loadTaiKhoanlist();
+        }
+        private void TaiKhoanUC_Load(object sender, EventArgs e)
+        {
+            loadTaiKhoanlist();
+            loadQuyenlist();
         }
 
         private void button_Xoa_Click(object sender, EventArgs e)
@@ -46,6 +53,7 @@ namespace SellPhones.GUI.UserControls
             else MessageBox.Show("Bạn  phải  chọn  mẩu  tin  cần  xóa");
 
             loadTaiKhoanlist();
+            loadQuyenlist();
         }
 
         private void tabPage_TK_Click(object sender, EventArgs e)
@@ -56,6 +64,8 @@ namespace SellPhones.GUI.UserControls
         private void button_Refresh_Click(object sender, EventArgs e)
         {
             setNull();
+            loadTaiKhoanlist();
+            loadQuyenlist();
         }
 
         private void panel3_Paint(object sender, PaintEventArgs e)
@@ -64,6 +74,11 @@ namespace SellPhones.GUI.UserControls
         }
         public void setNull()
         {
+            if (comboBox_Type.Items.Count > 0)
+            {
+                // Chọn item đầu tiên
+                comboBox_Type.SelectedIndex = 0;
+            }
             textBox_TK.Text = "";
             textBox_MK.Text = "";
         }
@@ -110,9 +125,19 @@ namespace SellPhones.GUI.UserControls
 
         private void button_Sua_Click(object sender, EventArgs e)
         {
-            TaiKhoanBUS.Instance.UpdateTaiKhoan(textBox_TK.Text, textBox_MK.Text);
-            loadTaiKhoanlist();
+            if (Grid_TaiKhoan.SelectedRows.Count > 0)
+            {
+                TaiKhoanBUS.Instance.UpdateTaiKhoan(Grid_TaiKhoan.SelectedRows[0].Cells["MaTK"].Value.ToString(), textBox_TK.Text, textBox_MK.Text);
+                loadTaiKhoanlist();
+                setNull();
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng trước khi sửa !!!!!");
+            }
         }
+
+
 
         private void button_CapQuyen_Click(object sender, EventArgs e)
         {
@@ -128,12 +153,43 @@ namespace SellPhones.GUI.UserControls
                 TaiKhoanBUS.Instance.addQuyen(id, quyen);
 
                 MessageBox.Show("Cập Nhật Thành Công !!!");
-                loadQuyenlist();    
+                loadQuyenlist();
             }
             else
             {
                 MessageBox.Show("Vui lòng chọn một dòng trước khi cấp quyền !!!!!");
             }
         }
+
+        private void button_Search_Click(object sender, EventArgs e)
+        {
+            if (comboBox_Type.SelectedIndex.ToString() == "") MessageBox.Show("Vui lòng chọn kiểu dữ liệu để tìm kiếm !!");
+            else
+            {
+                string action = comboBox_Type.SelectedItem.ToString();
+                string data = textBox_Search.Text;
+
+                if (data == "")
+                    MessageBox.Show("Vui lòng nhập dữ liệu cần tìm kiếm");
+                else
+                {
+                    DataTable dt = TaiKhoanBUS.Instance.searchTaiKhoan(data, action);
+                    Grid_TaiKhoan.DataSource = dt;
+
+                    Grid_TaiKhoan.Columns["MaTK"].HeaderText = "Mã Tài Khoản";
+                    Grid_TaiKhoan.Columns["TenDangNhap"].HeaderText = "Tên Đăng Nhập";
+                    Grid_TaiKhoan.Columns["MatKhau"].HeaderText = "Mật Khẩu";
+                    Grid_TaiKhoan.Columns["TrangThai"].HeaderText = "Trạng Thái";
+
+
+                    Grid_TaiKhoan.Columns["MaTK"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Grid_TaiKhoan.Columns["TenDangNhap"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Grid_TaiKhoan.Columns["MatKhau"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Grid_TaiKhoan.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
+        }
+        
+
     }
 }

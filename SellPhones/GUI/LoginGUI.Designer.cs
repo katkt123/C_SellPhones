@@ -33,7 +33,6 @@
             panel2 = new Panel();
             panel3 = new Panel();
             label_Error = new Label();
-            label_Forgot = new Label();
             button_SignUp = new Button();
             button_SignIn = new Button();
             textBox_MK = new TextBox();
@@ -71,7 +70,6 @@
             panel3.BackColor = Color.White;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
             panel3.Controls.Add(label_Error);
-            panel3.Controls.Add(label_Forgot);
             panel3.Controls.Add(button_SignUp);
             panel3.Controls.Add(button_SignIn);
             panel3.Controls.Add(textBox_MK);
@@ -92,16 +90,6 @@
             label_Error.Name = "label_Error";
             label_Error.Size = new Size(0, 20);
             label_Error.TabIndex = 7;
-            // 
-            // label_Forgot
-            // 
-            label_Forgot.AutoSize = true;
-            label_Forgot.BackColor = Color.PaleGoldenrod;
-            label_Forgot.Location = new Point(401, 378);
-            label_Forgot.Name = "label_Forgot";
-            label_Forgot.Size = new Size(116, 20);
-            label_Forgot.TabIndex = 6;
-            label_Forgot.Text = "Quên mật khẩu?";
             // 
             // button_SignUp
             // 
@@ -208,7 +196,6 @@
         private Label label2;
         private Button button_SignUp;
         private Button button_SignIn;
-        private Label label_Forgot;
         private Label label_Error;
     }
 }

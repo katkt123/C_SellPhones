@@ -5,6 +5,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.ComponentModel.Design.ObjectSelectorEditor;
 
 namespace SellPhones.DAO
 {
@@ -67,10 +68,10 @@ namespace SellPhones.DAO
             DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { username });
             return dt.Rows.Count > 0;
         }
-        public bool UpdateTaiKhoan(string user, string pass)
+        public bool UpdateTaiKhoan(string id, string user, string pass)
         {
-            string query = "update TaiKhoan set TenDangNhap = @TenDangNhap and MatKhau = @MatKhau ";
-            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { user, pass });
+            string query = "update TaiKhoan set TenDangNhap = @TenDangNhap , MatKhau = @MatKhau where MaTK = @id ";
+            int result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { user, pass , id });
             return result == 1;
         }
         public bool DelTaiKhoan(string id)
@@ -79,10 +80,19 @@ namespace SellPhones.DAO
             string query = "delete from TaiKhoan where MaTK = @MaTK ";
             string query1 = "delete from Quyen where MaTK = @MaTK ";
             result = DataProvider.Instance.ExecuteNonQuery(query1, new object[] { id });
-            result = result +DataProvider.Instance.ExecuteNonQuery(query1, new object[] { id });
+            result = result +DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
             return result == 2;
         }
+        public DataTable searchTaiKhoan(String data, String action)
+        {
+            string query = "";
+            if (action == "Mã Tài Khoản")
+                query = "select * from TaiKhoan where MaTK like '%" + data + "%'";
+            else if (action == "Tên Tài Khoản")
+                query = "select * from TaiKhoan where TenDangNhap like '%" + data + "%'";
+            
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
 
-        
     }
 }

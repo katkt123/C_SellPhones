@@ -34,6 +34,11 @@ namespace SellPhones.BUS
         {
             return TaiKhoanDAO.Instance.getAllQuyen();
         }
+
+        public DataTable searchTaiKhoan(string data,string action)
+        {
+            return TaiKhoanDAO.Instance.searchTaiKhoan(data,action);
+        }
         public string insertTaiKhoan(string user, string pass)
         {
             if (TaiKhoanDAO.Instance.isUserNameExist(user))
@@ -53,9 +58,9 @@ namespace SellPhones.BUS
             else return "Xóa Thất Bại";
 
         }
-        public string UpdateTaiKhoan(string user,string pass)
+        public string UpdateTaiKhoan(string id,string user,string pass)
         {
-            if (TaiKhoanDAO.Instance.UpdateTaiKhoan(user, pass))
+            if (TaiKhoanDAO.Instance.UpdateTaiKhoan(id,user, pass))
             {
                 return "Cập nhật thành công";
             }

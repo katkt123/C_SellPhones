@@ -10,6 +10,9 @@
     <Compile Update="GUI\RegisterGUI.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="GUI\UserControls\KhachHangUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="GUI\UserControls\TaiKhoanUC.cs">
       <SubType>UserControl</SubType>
     </Compile>

@@ -16,7 +16,7 @@ namespace SellPhones.GUI
 {
     public partial class LoginGUI : Form
     {
-        
+
 
         public LoginGUI()
         {
@@ -45,7 +45,7 @@ namespace SellPhones.GUI
         {
             string name = textBox_TK.Text;
             string pass = textBox_MK.Text;
-            MessageBox.Show("Nhaap dung roi "+name+" "+pass+" ");
+
             DataTable dt = LoginBUS.Instance.Login(name, pass);
 
             if (dt.Rows.Count <= 0)
@@ -58,7 +58,7 @@ namespace SellPhones.GUI
                 string id = Convert.ToString(dt.Rows[0][0]);
                 string subs = id.Substring(0, 2);
                 LoginBUS.Instance.active(id);
-                if (String.Equals(subs, "TK") || String.Equals(subs, "NV"))
+                if (String.Equals(subs, "TK") || String.Equals(subs, "AD"))
                     return true;
                 else return false;
             }
