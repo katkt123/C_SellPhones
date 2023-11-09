@@ -200,6 +200,7 @@
             button_Search.TabIndex = 7;
             button_Search.Text = "Tìm Kiếm";
             button_Search.UseVisualStyleBackColor = true;
+            button_Search.Click += button_Search_Click;
             // 
             // KhachHangUC
             // 

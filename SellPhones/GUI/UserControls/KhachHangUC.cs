@@ -17,6 +17,7 @@ namespace SellPhones.GUI.UserControls
         {
             InitializeComponent();
             loadKhachHanglist();
+            setNull();
         }
 
         private void KhachHangUC_Load(object sender, EventArgs e)
@@ -30,6 +31,11 @@ namespace SellPhones.GUI.UserControls
         }
         void setNull()
         {
+            if (comboBox_Type.Items.Count > 0)
+            {
+                // Chọn item đầu tiên
+                comboBox_Type.SelectedIndex = 0;
+            }
             textBox_Name.Text = "";
             textBox_Address.Text = "";
             textBox_Phone.Text = "";
@@ -100,6 +106,40 @@ namespace SellPhones.GUI.UserControls
             else MessageBox.Show("Vui lòng chọn một dòng trước khi xóa !!!");
 
             loadKhachHanglist();
+        }
+
+        private void button_Search_Click(object sender, EventArgs e)
+        {
+            if (comboBox_Type.SelectedIndex.ToString() == "") MessageBox.Show("Vui lòng chọn kiểu dữ liệu để tìm kiếm !!");
+            else
+            {
+                string action = comboBox_Type.SelectedItem.ToString();
+                string data = textBox_Search.Text;
+
+                if (data == "")
+                    MessageBox.Show("Vui lòng nhập dữ liệu cần tìm kiếm");
+                else
+                {
+                    DataTable dt = KhachHangBUS.Instance.searchKhachHang(data,action);
+
+
+                    Grid_KhachHang.DataSource = dt;
+
+                    Grid_KhachHang.Columns["MaKH"].HeaderText = "Mã Khách Hàng";
+                    Grid_KhachHang.Columns["TenKH"].HeaderText = "Tên Khách Hàng";
+                    Grid_KhachHang.Columns["DiaChi"].HeaderText = "Địa Chỉ";
+                    Grid_KhachHang.Columns["SDT"].HeaderText = "Số Điện Thoại";
+                    Grid_KhachHang.Columns["MaTK"].HeaderText = "Mã Tài Khoản";
+
+
+
+                    Grid_KhachHang.Columns["MaKH"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Grid_KhachHang.Columns["TenKH"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Grid_KhachHang.Columns["DiaChi"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Grid_KhachHang.Columns["SDT"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                    Grid_KhachHang.Columns["MaTK"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+                }
+            }
         }
     }
 }

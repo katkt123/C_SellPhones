@@ -55,5 +55,9 @@ namespace SellPhones.BUS
             }
             else return "Xóa Thất Bại !!";
         }
+        public DataTable searchKhachHang(string data,string action)
+        {
+            return KhachHangDAO.Instance.searchKhachHang(data,action);
+        }
     }
 }

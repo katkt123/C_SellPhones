@@ -79,6 +79,16 @@ namespace SellPhones.DAO
             result = result + DataProvider.Instance.ExecuteNonQuery(query1, new object[] { idtk });
             return result == 3;
         }
+        public DataTable searchKhachHang(String data, String action)
+        {
+            string query = "";
+            if (action == "Mã Khách Hàng")
+                query = "select * from KhachHang where MaKH like '%" + data + "%'";
+            else if (action == "Tên Khách Hàng")
+                query = "select * from TaiKhoan where TenKH like '%" + data + "%'";
+
+            return DataProvider.Instance.ExecuteQuery(query);
+        }
 
     }
 }
