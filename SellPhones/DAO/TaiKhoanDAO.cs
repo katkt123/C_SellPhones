@@ -93,6 +93,14 @@ namespace SellPhones.DAO
             
             return DataProvider.Instance.ExecuteQuery(query);
         }
+        public bool KhoaTaiKhoan(string id)
+        {
+            int result = 0;
+            string PhanQuyen = "Khóa";
+            string query = "Update Quyen set PhanQuyen = @PhanQuyen where MaTK = @id";
+            result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {PhanQuyen, id});
+            return result == 1;
+        }
 
     }
 }

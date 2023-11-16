@@ -30,6 +30,9 @@
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginGUI));
             panel1 = new Panel();
+            label6 = new Label();
+            label5 = new Label();
+            label4 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
             label_Error = new Label();
@@ -40,6 +43,7 @@
             textBox_TK = new TextBox();
             label2 = new Label();
             label1 = new Label();
+            panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
             SuspendLayout();
@@ -48,11 +52,48 @@
             // 
             panel1.BackgroundImage = (Image)resources.GetObject("panel1.BackgroundImage");
             panel1.BorderStyle = BorderStyle.FixedSingle;
+            panel1.Controls.Add(label6);
+            panel1.Controls.Add(label5);
+            panel1.Controls.Add(label4);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(553, 603);
+            panel1.Size = new Size(544, 603);
             panel1.TabIndex = 0;
+            // 
+            // label6
+            // 
+            label6.BackColor = Color.Transparent;
+            label6.Font = new Font("Segoe UI", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label6.Location = new Point(11, 408);
+            label6.Name = "label6";
+            label6.Size = new Size(528, 41);
+            label6.TabIndex = 9;
+            label6.Text = "Kết nối Groive Store, trải nghiệm mua sắm không giới hạn.";
+            label6.Click += label6_Click;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.BackColor = Color.Transparent;
+            label5.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label5.Location = new Point(11, 83);
+            label5.Name = "label5";
+            label5.Size = new Size(311, 31);
+            label5.TabIndex = 8;
+            label5.Text = "BẠN ĐẾN VỚI GROIVE STORE";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.BackColor = Color.Transparent;
+            label4.Font = new Font("Segoe UI", 28.2F, FontStyle.Regular, GraphicsUnit.Point);
+            label4.Location = new Point(3, 8);
+            label4.Name = "label4";
+            label4.Size = new Size(308, 62);
+            label4.TabIndex = 3;
+            label4.Text = "CHÀO MỪNG";
+            label4.Click += label4_Click;
             // 
             // panel2
             // 
@@ -177,6 +218,8 @@
             MinimumSize = new Size(1215, 650);
             Name = "LoginGUI";
             Text = "LoginGUI";
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
@@ -197,5 +240,8 @@
         private Button button_SignUp;
         private Button button_SignIn;
         private Label label_Error;
+        private Label label4;
+        private Label label5;
+        private Label label6;
     }
 }

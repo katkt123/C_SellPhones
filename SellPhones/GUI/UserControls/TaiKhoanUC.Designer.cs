@@ -30,20 +30,22 @@
         {
             tabControl1 = new TabControl();
             tabPage_TK = new TabPage();
-            button_Refresh = new Button();
+            button_Khoa = new Button();
             button_Search = new Button();
             textBox_Search = new TextBox();
             comboBox_Type = new ComboBox();
-            button_Sua = new Button();
-            button_Xoa = new Button();
-            button_Them = new Button();
             panel2 = new Panel();
+            button_Refresh = new Button();
+            textBox1 = new TextBox();
+            label3 = new Label();
             textBox_MK = new TextBox();
             label2 = new Label();
             textBox_TK = new TextBox();
             label1 = new Label();
             panel1 = new Panel();
             Grid_TaiKhoan = new DataGridView();
+            button_Sua = new Button();
+            button_Them = new Button();
             tabPage_Quyen = new TabPage();
             button_CapQuyen = new Button();
             comboBox_Quyen = new ComboBox();
@@ -72,15 +74,14 @@
             // 
             // tabPage_TK
             // 
-            tabPage_TK.Controls.Add(button_Refresh);
+            tabPage_TK.Controls.Add(button_Khoa);
             tabPage_TK.Controls.Add(button_Search);
             tabPage_TK.Controls.Add(textBox_Search);
             tabPage_TK.Controls.Add(comboBox_Type);
-            tabPage_TK.Controls.Add(button_Sua);
-            tabPage_TK.Controls.Add(button_Xoa);
-            tabPage_TK.Controls.Add(button_Them);
             tabPage_TK.Controls.Add(panel2);
             tabPage_TK.Controls.Add(panel1);
+            tabPage_TK.Controls.Add(button_Sua);
+            tabPage_TK.Controls.Add(button_Them);
             tabPage_TK.Location = new Point(4, 29);
             tabPage_TK.Name = "tabPage_TK";
             tabPage_TK.Padding = new Padding(3);
@@ -90,18 +91,19 @@
             tabPage_TK.UseVisualStyleBackColor = true;
             tabPage_TK.Click += tabPage_TK_Click;
             // 
-            // button_Refresh
+            // button_Khoa
             // 
-            button_Refresh.Location = new Point(416, 73);
-            button_Refresh.Name = "button_Refresh";
-            button_Refresh.Size = new Size(39, 39);
-            button_Refresh.TabIndex = 15;
-            button_Refresh.UseVisualStyleBackColor = true;
-            button_Refresh.Click += button_Refresh_Click;
+            button_Khoa.Location = new Point(815, 122);
+            button_Khoa.Name = "button_Khoa";
+            button_Khoa.Size = new Size(151, 44);
+            button_Khoa.TabIndex = 15;
+            button_Khoa.Text = "Khóa";
+            button_Khoa.UseVisualStyleBackColor = true;
+            button_Khoa.Click += button_Khoa_Click;
             // 
             // button_Search
             // 
-            button_Search.Location = new Point(817, 138);
+            button_Search.Location = new Point(640, 196);
             button_Search.Name = "button_Search";
             button_Search.Size = new Size(137, 29);
             button_Search.TabIndex = 14;
@@ -111,7 +113,7 @@
             // 
             // textBox_Search
             // 
-            textBox_Search.Location = new Point(542, 138);
+            textBox_Search.Location = new Point(386, 197);
             textBox_Search.Name = "textBox_Search";
             textBox_Search.Size = new Size(246, 27);
             textBox_Search.TabIndex = 13;
@@ -120,51 +122,51 @@
             // 
             comboBox_Type.FormattingEnabled = true;
             comboBox_Type.Items.AddRange(new object[] { "Mã Tài Khoản", "Tên Tài Khoản" });
-            comboBox_Type.Location = new Point(416, 138);
+            comboBox_Type.Location = new Point(256, 197);
             comboBox_Type.Name = "comboBox_Type";
-            comboBox_Type.Size = new Size(101, 28);
+            comboBox_Type.Size = new Size(124, 28);
             comboBox_Type.TabIndex = 12;
-            // 
-            // button_Sua
-            // 
-            button_Sua.Location = new Point(606, 11);
-            button_Sua.Name = "button_Sua";
-            button_Sua.Size = new Size(151, 35);
-            button_Sua.TabIndex = 10;
-            button_Sua.Text = "Sửa";
-            button_Sua.UseVisualStyleBackColor = true;
-            button_Sua.Click += button_Sua_Click;
-            // 
-            // button_Xoa
-            // 
-            button_Xoa.Location = new Point(803, 11);
-            button_Xoa.Name = "button_Xoa";
-            button_Xoa.Size = new Size(151, 35);
-            button_Xoa.TabIndex = 9;
-            button_Xoa.Text = "Xóa";
-            button_Xoa.UseVisualStyleBackColor = true;
-            button_Xoa.Click += button_Xoa_Click;
-            // 
-            // button_Them
-            // 
-            button_Them.Location = new Point(416, 10);
-            button_Them.Name = "button_Them";
-            button_Them.Size = new Size(151, 35);
-            button_Them.TabIndex = 8;
-            button_Them.Text = "Thêm";
-            button_Them.UseVisualStyleBackColor = true;
-            button_Them.Click += button_Them_Click;
             // 
             // panel2
             // 
+            panel2.Controls.Add(button_Refresh);
+            panel2.Controls.Add(textBox1);
+            panel2.Controls.Add(label3);
             panel2.Controls.Add(textBox_MK);
             panel2.Controls.Add(label2);
             panel2.Controls.Add(textBox_TK);
             panel2.Controls.Add(label1);
             panel2.Location = new Point(3, 11);
             panel2.Name = "panel2";
-            panel2.Size = new Size(385, 155);
+            panel2.Size = new Size(806, 155);
             panel2.TabIndex = 2;
+            // 
+            // button_Refresh
+            // 
+            button_Refresh.Location = new Point(440, 100);
+            button_Refresh.Name = "button_Refresh";
+            button_Refresh.Size = new Size(39, 39);
+            button_Refresh.TabIndex = 15;
+            button_Refresh.UseVisualStyleBackColor = true;
+            button_Refresh.Click += button_Refresh_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Enabled = false;
+            textBox1.Location = new Point(440, 41);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(334, 27);
+            textBox1.TabIndex = 13;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Times New Roman", 12F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(440, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(124, 22);
+            label3.TabIndex = 11;
+            label3.Text = "Mã Tài Khoản";
             // 
             // textBox_MK
             // 
@@ -205,9 +207,9 @@
             // 
             panel1.Controls.Add(Grid_TaiKhoan);
             panel1.Dock = DockStyle.Bottom;
-            panel1.Location = new Point(3, 199);
+            panel1.Location = new Point(3, 246);
             panel1.Name = "panel1";
-            panel1.Size = new Size(966, 265);
+            panel1.Size = new Size(966, 218);
             panel1.TabIndex = 1;
             // 
             // Grid_TaiKhoan
@@ -218,9 +220,31 @@
             Grid_TaiKhoan.Name = "Grid_TaiKhoan";
             Grid_TaiKhoan.RowHeadersWidth = 51;
             Grid_TaiKhoan.RowTemplate.Height = 29;
-            Grid_TaiKhoan.Size = new Size(966, 265);
+            Grid_TaiKhoan.Size = new Size(966, 218);
             Grid_TaiKhoan.TabIndex = 0;
+            Grid_TaiKhoan.CellClick += Grid_TaiKhoan_CellClick;
             Grid_TaiKhoan.CellContentClick += Grid_TaiKhoan_CellContentClick;
+            Grid_TaiKhoan.SelectionChanged += Grid_TaiKhoan_SelectionChanged;
+            // 
+            // button_Sua
+            // 
+            button_Sua.Location = new Point(815, 68);
+            button_Sua.Name = "button_Sua";
+            button_Sua.Size = new Size(151, 44);
+            button_Sua.TabIndex = 10;
+            button_Sua.Text = "Sửa";
+            button_Sua.UseVisualStyleBackColor = true;
+            button_Sua.Click += button_Sua_Click;
+            // 
+            // button_Them
+            // 
+            button_Them.Location = new Point(815, 11);
+            button_Them.Name = "button_Them";
+            button_Them.Size = new Size(151, 44);
+            button_Them.TabIndex = 8;
+            button_Them.Text = "Thêm";
+            button_Them.UseVisualStyleBackColor = true;
+            button_Them.Click += button_Them_Click;
             // 
             // tabPage_Quyen
             // 
@@ -248,7 +272,7 @@
             // comboBox_Quyen
             // 
             comboBox_Quyen.FormattingEnabled = true;
-            comboBox_Quyen.Items.AddRange(new object[] { "Quản Lý", "Nhân Viên", "Khách Hàng" });
+            comboBox_Quyen.Items.AddRange(new object[] { "Quản Lý", "Nhân Viên", "Khách Hàng", "Khóa" });
             comboBox_Quyen.Location = new Point(374, 22);
             comboBox_Quyen.Name = "comboBox_Quyen";
             comboBox_Quyen.Size = new Size(211, 28);
@@ -274,6 +298,7 @@
             Grid_Quyen.RowTemplate.Height = 29;
             Grid_Quyen.Size = new Size(966, 308);
             Grid_Quyen.TabIndex = 0;
+            Grid_Quyen.SelectionChanged += Grid_Quyen_SelectionChanged;
             // 
             // TaiKhoanUC
             // 
@@ -309,7 +334,6 @@
         private Label label2;
         private TextBox textBox_TK;
         private Button button_Sua;
-        private Button button_Xoa;
         private Button button_Search;
         private TextBox textBox_Search;
         private ComboBox comboBox_Type;
@@ -318,5 +342,8 @@
         private DataGridView Grid_Quyen;
         private Button button_CapQuyen;
         private ComboBox comboBox_Quyen;
+        private TextBox textBox1;
+        private Label label3;
+        private Button button_Khoa;
     }
 }

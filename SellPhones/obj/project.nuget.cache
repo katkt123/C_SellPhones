@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "OKiDhA6k0fDK8HzxxWAFsx7Rulh4dLk3/uZq5D9thkAuIItmN4W57xrbLj9I8BGkuMngUrjc+xObGUPfc6fDiw==",
+  "dgSpecHash": "Xkh/nm+oC2EzrPkdrP8MDjTSp1yZEYHUNsBRWh88dueNmNxFAUtwYrxFz5sF1ttjy++vqItcEaBw31t73DhsNw==",
   "success": true,
   "projectFilePath": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\SellPhones.csproj",
   "expectedPackageFiles": [
@@ -28,6 +28,8 @@
     "C:\\Users\\HAO KIET\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.8.0\\microsoft.identitymodel.protocols.openidconnect.6.8.0.nupkg.sha512",
     "C:\\Users\\HAO KIET\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\HAO KIET\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\HAO KIET\\.nuget\\packages\\microsoft.visualstudio.interop\\17.8.37221\\microsoft.visualstudio.interop.17.8.37221.nupkg.sha512",
+    "C:\\Users\\HAO KIET\\.nuget\\packages\\microsoft.visualstudio.ole.interop\\17.8.37221\\microsoft.visualstudio.ole.interop.17.8.37221.nupkg.sha512",
     "C:\\Users\\HAO KIET\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\HAO KIET\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\HAO KIET\\.nuget\\packages\\netstandard.library\\2.0.3\\netstandard.library.2.0.3.nupkg.sha512",

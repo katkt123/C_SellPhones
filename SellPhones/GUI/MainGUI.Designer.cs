@@ -84,9 +84,9 @@
             button_Thoat.AllowDrop = true;
             button_Thoat.BackColor = Color.PaleGoldenrod;
             button_Thoat.BackgroundImage = (Image)resources.GetObject("button_Thoat.BackgroundImage");
-            button_Thoat.Location = new Point(883, 9);
+            button_Thoat.Location = new Point(905, 4);
             button_Thoat.Name = "button_Thoat";
-            button_Thoat.Size = new Size(94, 60);
+            button_Thoat.Size = new Size(72, 72);
             button_Thoat.TabIndex = 0;
             button_Thoat.UseVisualStyleBackColor = false;
             button_Thoat.Click += button_Thoat_Click;

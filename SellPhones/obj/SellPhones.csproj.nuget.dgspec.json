@@ -52,6 +52,10 @@
               "target": "Package",
               "version": "[6.0.24, )"
             },
+            "Microsoft.VisualStudio.OLE.Interop": {
+              "target": "Package",
+              "version": "[17.8.37221, )"
+            },
             "NETStandard.Library": {
               "target": "Package",
               "version": "[2.0.3, )"
@@ -80,7 +84,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\8.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

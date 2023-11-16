@@ -49,5 +49,20 @@ namespace Sellphone.DAO
             result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id });
             return result > 0;
         }
+        public string getQuyen(string id)
+        {
+            string quyen = "";
+            string query = "SELECT * FROM Quyen WHERE MaTK = @Matk";
+
+            DataTable dt = DataProvider.Instance.ExecuteQuery(query, new object[] { id });
+
+            if (dt.Rows.Count > 0)
+            {
+                quyen = dt.Rows[0]["PhanQuyen"].ToString(); // Thay "TenCot" bằng tên thực của cột quyền trong bảng Quyen
+            }
+
+            return quyen;
+        }
+        
     }
 }

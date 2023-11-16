@@ -59,6 +59,7 @@ namespace SellPhones.DAO
             string query1 = "insert into KhachHang (MaKH,TenKH,DiaChi,SDT,MaTK) values( @id , @ten , @diachi , @sdt , @matk )";
             result += DataProvider.Instance.ExecuteNonQuery(query1, new object[] { id, name,address,phone,id1 });
 
+
             
             return result == 3;
         }
