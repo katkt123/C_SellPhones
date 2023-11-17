@@ -119,7 +119,7 @@ namespace SellPhones.GUI
                 string quyen = LoginDAO.Instance.getQuyen(id);
                 string subs = id.Substring(0, 2);
                 LoginBUS.Instance.active(id);
-                if (String.Equals(quyen, "Quản Lý") || String.Equals(quyen, "Nhân Viên"))
+                if (String.Equals(quyen, "Quản Trị Viên") || String.Equals(quyen, "Quản Lý") || String.Equals(quyen, "Nhân Viên"))
                     return true;
                 else return false;
             }

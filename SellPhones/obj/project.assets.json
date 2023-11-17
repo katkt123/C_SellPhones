@@ -2345,24 +2345,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\HAO KIET\\.nuget\\packages\\": {},
-    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
+    "C:\\Users\\loc01\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\SellPhones.csproj",
+      "projectUniqueName": "C:\\SGU\\SellPhones1\\SellPhones\\SellPhones\\SellPhones.csproj",
       "projectName": "SellPhones",
-      "projectPath": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\SellPhones.csproj",
-      "packagesPath": "C:\\Users\\HAO KIET\\.nuget\\packages\\",
-      "outputPath": "C:\\SGU\\Nam3 HK1\\C#\\Doan\\SellPhones\\SellPhones\\obj\\",
+      "projectPath": "C:\\SGU\\SellPhones1\\SellPhones\\SellPhones\\SellPhones.csproj",
+      "packagesPath": "C:\\Users\\loc01\\.nuget\\packages\\",
+      "outputPath": "C:\\SGU\\SellPhones1\\SellPhones\\SellPhones\\obj\\",
       "projectStyle": "PackageReference",
-      "fallbackFolders": [
-        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-      ],
       "configFilePaths": [
-        "C:\\Users\\HAO KIET\\AppData\\Roaming\\NuGet\\NuGet.Config",
-        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Users\\loc01\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [

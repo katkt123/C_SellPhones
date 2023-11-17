@@ -24,9 +24,9 @@ namespace SellPhones.GUI
         {
             InitializeComponent();
             AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
+            AddComponent("Nhân Viên", new NhanVienUC(), "Logo.png");
             AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
-            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            AddComponent("Khuyến Mãi", new KhuyenMaiUC(), "Logo.png");
             AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
             AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
             AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");

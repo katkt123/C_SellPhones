@@ -13,8 +13,17 @@
     <Compile Update="GUI\UserControls\KhachHangUC.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="GUI\UserControls\KhuyenMaiUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\UserControls\NhanVienUC.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="GUI\UserControls\TaiKhoanUC.cs">
       <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="GUI\UserControls\TaoKhuyenMai.cs">
+      <SubType>Form</SubType>
     </Compile>
   </ItemGroup>
 </Project>
