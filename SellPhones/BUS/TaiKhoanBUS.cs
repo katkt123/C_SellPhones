@@ -74,6 +74,13 @@ namespace SellPhones.BUS
             }
             else return "Thêm quyền thất bại";
         }
-
+        public string KhoaTaiKhoan(string id)
+        {
+            if (TaiKhoanDAO.Instance.KhoaTaiKhoan(id))
+            {
+                return "Khóa Thành Công";
+            }
+            else return "Khóa Thất Bại";
+        }
     }
 }

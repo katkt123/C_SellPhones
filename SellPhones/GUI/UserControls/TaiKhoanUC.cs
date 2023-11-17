@@ -46,6 +46,7 @@ namespace SellPhones.GUI.UserControls
                 {
                     string maTK = Grid_TaiKhoan.SelectedRows[0].Cells["MaTK"].Value.ToString();
                     TaiKhoanBUS.Instance.DelTaiKhoan(maTK);
+                    MessageBox.Show("Xóa Thành Công !!!!!");
                     Grid_TaiKhoan.Rows.Remove(Grid_TaiKhoan.SelectedRows[0]);
                     setNull();
                 }
@@ -189,7 +190,77 @@ namespace SellPhones.GUI.UserControls
                 }
             }
         }
-        
 
+        private void Grid_TaiKhoan_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex >= 0)
+            {
+                DataGridViewRow row = Grid_TaiKhoan.Rows[e.RowIndex];
+
+                // Hiển thị thông tin từ hàng được chọn lên TextBox
+                textBox1.Text = row.Cells["MaTK"].Value.ToString();
+                textBox_TK.Text = row.Cells["TenDangNhap"].Value.ToString();
+                textBox_MK.Text = row.Cells["MatKhau"].Value.ToString();
+                // ... thêm các TextBox khác tương ứng với các cột trong DataGridView
+            }
+        }
+
+        private void button_Khoa_Click(object sender, EventArgs e)
+        {
+            if (Grid_TaiKhoan.SelectedRows.Count > 0)
+            {
+                string matk = Grid_TaiKhoan.SelectedRows[0].Cells["MaTK"].Value.ToString();
+                string firstTwoChars = matk.Substring(0, 2);
+
+                if (firstTwoChars == "AD")
+                {
+                    MessageBox.Show("Tài Khoản ADMIN không thể bị khóa vui lòng chọn tài khoản khác !!!!!!!!");
+                }
+                else
+                {
+                    TaiKhoanBUS.Instance.KhoaTaiKhoan(matk);
+                    MessageBox.Show("Khóa Thành Công");
+                    loadTaiKhoanlist();
+                    loadQuyenlist();
+                    setNull();
+                }
+
+            }
+            else
+            {
+                MessageBox.Show("Vui lòng chọn một dòng trước khi khoá !!!!!");
+            }
+        }
+
+        private void Grid_TaiKhoan_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Grid_TaiKhoan.SelectedCells.Count > 0)
+            {
+                int selectedRowIndex = Grid_TaiKhoan.SelectedCells[0].RowIndex;
+
+                // Kiểm tra nếu người dùng đã chọn hàng đầu tiên
+                if (selectedRowIndex == 0)
+                {
+                    // Bỏ chọn hàng đầu tiên
+                    Grid_TaiKhoan.Rows[selectedRowIndex].Selected = false;
+                }
+            }
+        }
+
+        private void Grid_Quyen_SelectionChanged(object sender, EventArgs e)
+        {
+            if (Grid_Quyen.SelectedCells.Count > 0)
+            {
+                int selectedRowIndex = Grid_Quyen.SelectedCells[0].RowIndex;
+
+
+                // Kiểm tra nếu người dùng đã chọn hàng đầu tiên
+                if (selectedRowIndex == 0)
+                {
+                    // Bỏ chọn hàng đầu tiên
+                    Grid_Quyen.Rows[selectedRowIndex].Selected = false;
+                }
+            }
+        }
     }
 }
