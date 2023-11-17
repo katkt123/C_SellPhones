@@ -79,7 +79,7 @@ namespace SellPhones.DAO
         {
             string query = "";
             if (action == "Mã Nhân Viên")
-                query = "select * from NhanVien where MaNV like N'%" + data + "%'";
+                query = "select * from NhanVien where MaNV like '%" + data + "%'";
             else if (action == "Tên Nhân Viên")
                 query = "select * from NhanVien where TenNV like N'%" + data + "%'";
             return DataProvider.Instance.ExecuteQuery(query);

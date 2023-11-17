@@ -97,6 +97,7 @@ namespace SellPhones.GUI.UserControls
                     radioButton.Checked = false;
                 }
             }
+            loadnhanvien();
         }
 
         private void Sửa_Click(object sender, EventArgs e)

@@ -86,7 +86,7 @@ namespace SellPhones.DAO
             if (action == "Mã Khách Hàng")
                 query = "select * from KhachHang where MaKH like '%" + data + "%'";
             else if (action == "Tên Khách Hàng")
-                query = "select * from TaiKhoan where TenKH like '%" + data + "%'";
+                query = "select * from KhachHang where TenKH like N'%" + data + "%'";
 
             return DataProvider.Instance.ExecuteQuery(query);
         }

@@ -152,7 +152,7 @@ namespace SellPhones.GUI.UserControls
                 else
                 {
                     DataTable dt = KhachHangBUS.Instance.searchKhachHang(data, action);
-
+                    MessageBox.Show("Thông tin bạn đã tìm đã có !!");
 
                     Grid_KhachHang.DataSource = dt;
 
