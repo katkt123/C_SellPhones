@@ -89,7 +89,7 @@ namespace SellPhones.DAO
             if (action == "Mã Tài Khoản")
                 query = "select * from TaiKhoan where MaTK like '%" + data + "%'";
             else if (action == "Tên Tài Khoản")
-                query = "select * from TaiKhoan where TenDangNhap like '%" + data + "%'";
+                query = "select * from TaiKhoan where TenDangNhap like N'%" + data + "%'";
             
             return DataProvider.Instance.ExecuteQuery(query);
         }

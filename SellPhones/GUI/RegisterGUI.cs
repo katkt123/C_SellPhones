@@ -48,7 +48,7 @@ namespace SellPhones.GUI
                 string sdt = textBox_SDT.Text;
 
                 RegisterBUS.Instance.Register(user, pass, name, diachi, sdt);
-
+                MessageBox.Show("Đăng Ký Thành Công !!!!!");
                 this.Hide();
                 LoginGUI lg = new LoginGUI();
                 lg.StartPosition = FormStartPosition.CenterScreen;

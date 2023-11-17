@@ -45,7 +45,6 @@
             panel1 = new Panel();
             Grid_TaiKhoan = new DataGridView();
             button_Sua = new Button();
-            button_Them = new Button();
             tabPage_Quyen = new TabPage();
             button_CapQuyen = new Button();
             comboBox_Quyen = new ComboBox();
@@ -81,7 +80,6 @@
             tabPage_TK.Controls.Add(panel2);
             tabPage_TK.Controls.Add(panel1);
             tabPage_TK.Controls.Add(button_Sua);
-            tabPage_TK.Controls.Add(button_Them);
             tabPage_TK.Location = new Point(4, 29);
             tabPage_TK.Name = "tabPage_TK";
             tabPage_TK.Padding = new Padding(3);
@@ -93,9 +91,9 @@
             // 
             // button_Khoa
             // 
-            button_Khoa.Location = new Point(815, 122);
+            button_Khoa.Location = new Point(815, 95);
             button_Khoa.Name = "button_Khoa";
-            button_Khoa.Size = new Size(151, 44);
+            button_Khoa.Size = new Size(151, 70);
             button_Khoa.TabIndex = 15;
             button_Khoa.Text = "Khóa";
             button_Khoa.UseVisualStyleBackColor = true;
@@ -228,23 +226,13 @@
             // 
             // button_Sua
             // 
-            button_Sua.Location = new Point(815, 68);
+            button_Sua.Location = new Point(815, 14);
             button_Sua.Name = "button_Sua";
-            button_Sua.Size = new Size(151, 44);
+            button_Sua.Size = new Size(151, 61);
             button_Sua.TabIndex = 10;
             button_Sua.Text = "Sửa";
             button_Sua.UseVisualStyleBackColor = true;
             button_Sua.Click += button_Sua_Click;
-            // 
-            // button_Them
-            // 
-            button_Them.Location = new Point(815, 11);
-            button_Them.Name = "button_Them";
-            button_Them.Size = new Size(151, 44);
-            button_Them.TabIndex = 8;
-            button_Them.Text = "Thêm";
-            button_Them.UseVisualStyleBackColor = true;
-            button_Them.Click += button_Them_Click;
             // 
             // tabPage_Quyen
             // 
