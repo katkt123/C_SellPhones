@@ -24,7 +24,7 @@ namespace SellPhones.DAO
             private set { instance = value; }
         }
         private RegisterDAO() { }
-        public bool Register(string user,string pass,string name,string address,string phone)
+        public bool Register(string user,string pass,string email,string name,string address,string phone)
         {
             int result = 0;
             
@@ -46,8 +46,8 @@ namespace SellPhones.DAO
             else if (row2 >= 1 && row2 <= 9) id2 = "KH00" + row2.ToString();
             else id2 = "KH" + row2.ToString();
 
-            string query = "insert into TaiKhoan(MaTK,TenDangNhap,MatKhau,TrangThai) values( @MaTK , @TenDangNhap , @MatKhau , 0 )";
-            result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, user,pass });
+            string query = "insert into TaiKhoan(MaTK,TenDangNhap,MatKhau,Email,TrangThai) values( @MaTK , @TenDangNhap , @MatKhau , @Email , 0 )";
+            result = DataProvider.Instance.ExecuteNonQuery(query, new object[] { id, user,pass,email });
 
             string query2 = "insert into KhachHang(MaKH,TenKH,DiaChi,SDT,MaTK) values( @MaKH , @TenKH , @DiaChi , @SDT , @MaTK )";
             result = result + DataProvider.Instance.ExecuteNonQuery(query2, new object[] { id2, name,address,phone, id});

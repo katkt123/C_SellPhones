@@ -9,6 +9,6 @@
     "\\SellPhones\\GUI\\UserControls",
     "\\SQL"
   ],
-  "SelectedNode": "\\SellPhones\\GUI\\UserControls\\KhachHangUC.cs",
+  "SelectedNode": "\\SellPhones\\DAO\\LoginDAO.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -1,4 +1,5 @@
 ﻿using Microsoft.VisualBasic.Logging;
+using Sellphone.DAO;
 using SellPhones.BUS;
 using SellPhones.GUI.UserControls;
 using System;
@@ -23,13 +24,16 @@ namespace SellPhones.GUI
         public MainGUI()
         {
             InitializeComponent();
-            AddComponent("Tài Khoản", new TaiKhoanUC(), "Logo.png");
-            AddComponent("Nhân Viên", new NhanVienUC(), "Logo.png");
-            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
-            AddComponent("Khuyến Mãi", new KhuyenMaiUC(), "Logo.png");
-            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
-            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
-            AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
+            label1.Text = DateTime.Now.ToLongTimeString();
+            timer1.Start();
+            AddComponent("Trang Chủ", new TrangChuUC(), "Home.png");
+            AddComponent("Tài Khoản", new TaiKhoanUC(), "Account.png");
+            AddComponent("Nhân Viên", new NhanVienUC(), "Staff.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Customer.png");
+            AddComponent("Khuyến Mãi", new KhuyenMaiUC(), "Sale.png");
+            AddComponent("Hóa Đơn", new HoaDonUC(), "Bill.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Import.png");
+            AddComponent("Khách Hàng", new KhachHangUC(), "Statistics.png");
             AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
             AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
             AddComponent("Khách Hàng", new KhachHangUC(), "Logo.png");
@@ -40,7 +44,10 @@ namespace SellPhones.GUI
 
         private void MainGUI_Load(object sender, EventArgs e)
         {
-            
+            panel_UC.Controls.Clear();
+            panel_UC.Controls.Add(new TrangChuUC());
+            panel_UC.Invalidate();
+            panel_UC.PerformLayout();
         }
         private void AddComponent(string buttonName, UserControl userControlname, string path = null)
         {
@@ -79,7 +86,12 @@ namespace SellPhones.GUI
                 panel_UC.Controls.Add(userControlname);
                 panel_UC.Invalidate();
                 panel_UC.PerformLayout();
-                label_QuanLi.Text = "Quản Lý " + buttonName;
+                if (buttonName == "Trang Chủ")
+                {
+                    label_QuanLi.Text = buttonName;
+                }
+                else
+                    label_QuanLi.Text = "Quản Lý " + buttonName;
             };
 
             PanelTools.Controls.Add(btn);
@@ -98,7 +110,7 @@ namespace SellPhones.GUI
             string id = Convert.ToString(dt.Rows[0][0]);
             int rowCount = dt.Rows.Count;
 
-            MessageBox.Show(rowCount+"             !!");
+            MessageBox.Show(rowCount + "             !!");
             manvLogined = id; // Đổi thành phương thức để lấy mã nhân viên
             label_MaNV.Text = "Mã :" + manvLogined;
 
@@ -154,19 +166,45 @@ namespace SellPhones.GUI
 
             if (result == DialogResult.Yes)
             {
-                DataTable dt = LoginBUS.Instance.id_active();
-                string id = Convert.ToString(dt.Rows[0][0]);
-                LoginBUS.Instance.unactive(id);
-                this.Hide();
-                LoginGUI lg = new LoginGUI();
-                lg.StartPosition = FormStartPosition.CenterScreen;
-                lg.ShowDialog();
-                this.Close();
+                //DataTable dt = LoginBUS.Instance.id_active();
+                //string id = Convert.ToString(dt.Rows[0][0]);
+                //LoginBUS.Instance.unactive(id);
+                string user = LoginGUI.user;
+                string pass = LoginGUI.password;
+                if (LoginBUS.Instance.unactive1(user, pass))
+                {
+                    this.Hide();
+                    LoginGUI lg = new LoginGUI();
+                    lg.StartPosition = FormStartPosition.CenterScreen;
+                    lg.ShowDialog();
+                    this.Close();
+                }
+                else
+                {
+                    MessageBox.Show("Đăng xuất thất bại !!!");
+                }
+                //this.Hide();
+                //LoginGUI lg = new LoginGUI();
+                //lg.StartPosition = FormStartPosition.CenterScreen;
+                //lg.ShowDialog();
+                //this.Close();
             }
+
+        }
+
+        private void pictureBox_Click(object sender, EventArgs e)
+        {
+            panel_UC.Controls.Clear();
+            panel_UC.Controls.Add(new TrangChuUC());
+            panel_UC.Invalidate();
+            panel_UC.PerformLayout();
+
+        }
+
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            label1.Text = DateTime.Now.ToLongTimeString();
             
         }
-        
-
-       
     }
 }

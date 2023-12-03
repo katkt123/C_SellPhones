@@ -1,5 +1,6 @@
 ﻿using Microsoft.VisualBasic.ApplicationServices;
 using SellPhones.BUS;
+using SellPhones.DAO;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -75,10 +76,10 @@ namespace SellPhones.GUI.UserControls
         }
         public void setNull()
         {
-            if (comboBox_Type.Items.Count > 0)
+            if (comboBox1.Items.Count > 0)
             {
                 // Chọn item đầu tiên
-                comboBox_Type.SelectedIndex = 0;
+               comboBox1.SelectedIndex = 0;
             }
             textBox_TK.Text = "";
             textBox_MK.Text = "";
@@ -164,31 +165,7 @@ namespace SellPhones.GUI.UserControls
 
         private void button_Search_Click(object sender, EventArgs e)
         {
-            if (comboBox_Type.SelectedIndex.ToString() == "") MessageBox.Show("Vui lòng chọn kiểu dữ liệu để tìm kiếm !!");
-            else
-            {
-                string action = comboBox_Type.SelectedItem.ToString();
-                string data = textBox_Search.Text;
-
-                if (data == "")
-                    MessageBox.Show("Vui lòng nhập dữ liệu cần tìm kiếm");
-                else
-                {
-                    DataTable dt = TaiKhoanBUS.Instance.searchTaiKhoan(data, action);
-                    Grid_TaiKhoan.DataSource = dt;
-
-                    Grid_TaiKhoan.Columns["MaTK"].HeaderText = "Mã Tài Khoản";
-                    Grid_TaiKhoan.Columns["TenDangNhap"].HeaderText = "Tên Đăng Nhập";
-                    Grid_TaiKhoan.Columns["MatKhau"].HeaderText = "Mật Khẩu";
-                    Grid_TaiKhoan.Columns["TrangThai"].HeaderText = "Trạng Thái";
-
-
-                    Grid_TaiKhoan.Columns["MaTK"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    Grid_TaiKhoan.Columns["TenDangNhap"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    Grid_TaiKhoan.Columns["MatKhau"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                    Grid_TaiKhoan.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
-                }
-            }
+            textBox_Search.Text = "";
         }
 
         private void Grid_TaiKhoan_CellClick(object sender, DataGridViewCellEventArgs e)
@@ -201,6 +178,7 @@ namespace SellPhones.GUI.UserControls
                 textBox1.Text = row.Cells["MaTK"].Value.ToString();
                 textBox_TK.Text = row.Cells["TenDangNhap"].Value.ToString();
                 textBox_MK.Text = row.Cells["MatKhau"].Value.ToString();
+                textBox2.Text = TaiKhoanDAO.Instance.getQuyen(row.Cells["MaTK"].Value.ToString());
                 // ... thêm các TextBox khác tương ứng với các cột trong DataGridView
             }
         }
@@ -261,6 +239,49 @@ namespace SellPhones.GUI.UserControls
                     Grid_Quyen.Rows[selectedRowIndex].Selected = false;
                 }
             }
+        }
+
+        private void groupBox3_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox_Search_TextChanged(object sender, EventArgs e)
+        {
+            string data = textBox_Search.Text;
+
+
+            DataTable dt = TaiKhoanDAO.Instance.SearchTK(data);
+            Grid_TaiKhoan.DataSource = dt;
+
+            Grid_TaiKhoan.Columns["MaTK"].HeaderText = "Mã Tài Khoản";
+            Grid_TaiKhoan.Columns["TenDangNhap"].HeaderText = "Tên Đăng Nhập";
+            Grid_TaiKhoan.Columns["MatKhau"].HeaderText = "Mật Khẩu";
+            Grid_TaiKhoan.Columns["Email"].HeaderText = "E-Mail";
+            Grid_TaiKhoan.Columns["TrangThai"].HeaderText = "Trạng Thái";
+
+
+            Grid_TaiKhoan.Columns["MaTK"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Grid_TaiKhoan.Columns["TenDangNhap"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Grid_TaiKhoan.Columns["MatKhau"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Grid_TaiKhoan.Columns["Email"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Grid_TaiKhoan.Columns["TrangThai"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
+        }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            string action = comboBox1.SelectedItem.ToString();
+            DataTable dt = TaiKhoanDAO.Instance.getDS(action);
+            Grid_Quyen.DataSource = dt;
+
+            Grid_Quyen.Columns["MaTK"].HeaderText = "Mã Tài Khoản";
+            Grid_Quyen.Columns["PhanQuyen"].HeaderText = "Quyền";
+
+
+
+            Grid_Quyen.Columns["MaTK"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Grid_Quyen.Columns["PhanQuyen"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
         }
     }
 }

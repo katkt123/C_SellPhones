@@ -28,15 +28,19 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainGUI));
             fileSystemWatcher1 = new FileSystemWatcher();
             panel2 = new Panel();
+            label1 = new Label();
             label_QuanLi = new Label();
             label_MaNV = new Label();
             button_Thoat = new Button();
             panel_UC = new Panel();
             pictureBox = new PictureBox();
             PanelTools = new FlowLayoutPanel();
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            timer1 = new System.Windows.Forms.Timer(components);
             ((System.ComponentModel.ISupportInitialize)fileSystemWatcher1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox).BeginInit();
@@ -50,6 +54,7 @@
             // panel2
             // 
             panel2.BackColor = Color.PaleGoldenrod;
+            panel2.Controls.Add(label1);
             panel2.Controls.Add(label_QuanLi);
             panel2.Controls.Add(label_MaNV);
             panel2.Controls.Add(button_Thoat);
@@ -58,15 +63,25 @@
             panel2.Size = new Size(980, 80);
             panel2.TabIndex = 2;
             // 
+            // label1
+            // 
+            label1.AutoSize = true;
+            label1.Font = new Font("Segoe UI", 29F, FontStyle.Regular, GraphicsUnit.Point);
+            label1.Location = new Point(566, 7);
+            label1.Name = "label1";
+            label1.Size = new Size(158, 66);
+            label1.TabIndex = 4;
+            label1.Text = "label1";
+            // 
             // label_QuanLi
             // 
             label_QuanLi.AutoSize = true;
             label_QuanLi.Font = new Font("Times New Roman", 34.2F, FontStyle.Regular, GraphicsUnit.Point);
             label_QuanLi.Location = new Point(3, 6);
             label_QuanLi.Name = "label_QuanLi";
-            label_QuanLi.Size = new Size(226, 65);
+            label_QuanLi.Size = new Size(269, 65);
             label_QuanLi.TabIndex = 3;
-            label_QuanLi.Text = "Quản Lý";
+            label_QuanLi.Text = "Trang Chủ";
             label_QuanLi.TextAlign = ContentAlignment.MiddleCenter;
             // 
             // label_MaNV
@@ -107,6 +122,7 @@
             pictureBox.SizeMode = PictureBoxSizeMode.StretchImage;
             pictureBox.TabIndex = 6;
             pictureBox.TabStop = false;
+            pictureBox.Click += pictureBox_Click;
             // 
             // PanelTools
             // 
@@ -117,17 +133,24 @@
             PanelTools.Size = new Size(200, 500);
             PanelTools.TabIndex = 7;
             // 
+            // timer1
+            // 
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
+            // 
             // MainGUI
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1197, 603);
+            ClientSize = new Size(1190, 595);
             Controls.Add(PanelTools);
             Controls.Add(pictureBox);
             Controls.Add(panel_UC);
             Controls.Add(panel2);
+            FormBorderStyle = FormBorderStyle.None;
             MaximumSize = new Size(1215, 650);
-            MinimumSize = new Size(1215, 650);
+            MinimumSize = new Size(1000, 550);
             Name = "MainGUI";
             Text = "MainGUI";
             Load += MainGUI_Load;
@@ -148,5 +171,8 @@
         private Label label_QuanLi;
         private PictureBox pictureBox;
         private FlowLayoutPanel PanelTools;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Label label1;
+        private System.Windows.Forms.Timer timer1;
     }
 }

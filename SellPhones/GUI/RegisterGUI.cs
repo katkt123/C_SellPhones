@@ -1,4 +1,5 @@
-﻿using SellPhones.BUS;
+﻿using Sellphone.DAO;
+using SellPhones.BUS;
 using SellPhones.DAO;
 using System;
 using System.Collections.Generic;
@@ -11,17 +12,76 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml.Linq;
+using Timer = System.Windows.Forms.Timer;
 
 namespace SellPhones.GUI
 {
     public partial class RegisterGUI : Form
     {
-
+        private Timer timer;
+        private string[] words;
+        private string[] words1;
+        private int currentIndex;
+        private int currentIndex1;
         public RegisterGUI()
         {
             InitializeComponent();
+            timer = new Timer();
+            timer.Interval = 500;
+            timer.Tick += Timer_Tick;
+            timer.Tick += Timer_Tick1;
+
+            // Chuỗi cần hiển thị
+            string labelText = label9.Text;
+            string labelText1 = label8.Text;
+
+            // Chia chuỗi thành các từ
+            words = labelText.Split(' ');
+            words1 = labelText1.Split(' ');
+            // Bắt đầu Timer khi Form khởi tạo
+            timer.Start();
         }
 
+        private void Timer_Tick(object sender, EventArgs e)
+        {
+            // Kiểm tra xem currentIndex có vượt quá số lượng từ không
+            if (currentIndex < words.Length)
+            {
+                // Hiển thị từng cụm từ
+                label9.Text = string.Join(" ", words.Take(currentIndex + 1));
+
+                // Tăng currentIndex để chuẩn bị cho lần kế tiếp
+                currentIndex++;
+
+                // Kiểm tra xem currentIndex có vượt quá số lượng từ không
+                if (currentIndex >= words.Length)
+                {
+                    // Nếu currentIndex vượt quá, đặt lại nó về 0
+                    currentIndex = 0;
+                }
+            }
+
+        }
+        private void Timer_Tick1(object sender, EventArgs e)
+        {
+            // Kiểm tra xem currentIndex có vượt quá số lượng từ không
+            if (currentIndex < words.Length)
+            {
+                // Hiển thị từng cụm từ
+                label8.Text = string.Join(" ", words1.Take(currentIndex1 + 1));
+
+                // Tăng currentIndex để chuẩn bị cho lần kế tiếp
+                currentIndex1++;
+
+                // Kiểm tra xem currentIndex có vượt quá số lượng từ không
+                if (currentIndex1 >= words1.Length)
+                {
+                    // Nếu currentIndex vượt quá, đặt lại nó về 0
+                    currentIndex1 = 0;
+                }
+            }
+
+        }
         private void RegisterGUI_Load(object sender, EventArgs e)
         {
 
@@ -46,8 +106,9 @@ namespace SellPhones.GUI
                 string name = textBox_Name.Text;
                 string diachi = textBox_DiaChi.Text;
                 string sdt = textBox_SDT.Text;
+                string email = textBox_Email.Text;
 
-                RegisterBUS.Instance.Register(user, pass, name, diachi, sdt);
+                RegisterBUS.Instance.Register(user, pass,email, name, diachi, sdt);
                 MessageBox.Show("Đăng Ký Thành Công !!!!!");
                 this.Hide();
                 LoginGUI lg = new LoginGUI();
@@ -55,6 +116,20 @@ namespace SellPhones.GUI
                 lg.ShowDialog();
                 this.Close();
             }
+        }
+        private bool IsValidGmailAddress(string emailAddress)
+        {
+            if(LoginDAO.Instance.CheckEmail(emailAddress))
+            {
+                MessageBox.Show("Gmail đã tồn tại !!!!");
+                return false;
+            }
+            else
+            {
+                string pattern = @"^[a-zA-Z0-9._%+-]+@gmail\.com$";
+                return Regex.IsMatch(emailAddress, pattern);
+            }
+            
         }
         private Boolean valid()
         {
@@ -79,6 +154,12 @@ namespace SellPhones.GUI
                 emptyFieldCount++;
                 label_Name.Text = "X";
 
+            }
+            if (!IsValidGmailAddress(textBox_Email.Text))
+            {
+                emptyFieldCount++;
+                label11.Text = "X";
+                txtError.Text = "Địa chỉ email không phải là Gmail.";
             }
 
             if (textBox_SDT.Text == "")

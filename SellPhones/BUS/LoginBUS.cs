@@ -1,4 +1,5 @@
 ﻿using Sellphone.DAO;
+using SellPhones.DAO;
 using System;
 using System.Collections.Generic;
 using System.Data;
@@ -50,6 +51,34 @@ namespace SellPhones.BUS
         {
             return LoginDAO.Instance.id_active();
         }
+        public string RePassword(string pass, string email)
+        {
+            if (LoginDAO.Instance.RePassword(pass, email))
+            {
+                return "Thay đổi mật khẩu thành công";
 
+            }
+            else return "Thay đổi mật khẩu thất bại";
+        }
+        public string CheckEmail (string email)
+        {
+            if (LoginDAO.Instance.CheckEmail(email))
+            {
+                return "Co thong tin ve email";
+            }
+            else return "Khong co thong tin ve email";
+        }
+        public bool unactive1(string user,string password)
+        {
+            return LoginDAO.Instance.unactive1(user, password);
+        }
+        public string getMaTK(string user,string pass)
+        {
+            return LoginDAO.Instance.getMaTK(user, pass);
+        }
+        public string getMaNV(string id)
+        {
+            return LoginDAO.Instance.getMaNV(id);
+        }
     }
 }

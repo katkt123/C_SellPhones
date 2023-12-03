@@ -35,6 +35,11 @@
             label4 = new Label();
             panel2 = new Panel();
             panel3 = new Panel();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
+            label7 = new Label();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             label_Error = new Label();
             button_SignUp = new Button();
             button_SignIn = new Button();
@@ -46,6 +51,10 @@
             panel1.SuspendLayout();
             panel2.SuspendLayout();
             panel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panel1
@@ -101,15 +110,20 @@
             panel2.Controls.Add(panel3);
             panel2.Controls.Add(label1);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(538, 0);
+            panel2.Location = new Point(546, 0);
             panel2.Name = "panel2";
-            panel2.Size = new Size(659, 603);
+            panel2.Size = new Size(651, 603);
             panel2.TabIndex = 1;
             // 
             // panel3
             // 
-            panel3.BackColor = Color.White;
+            panel3.BackColor = Color.Transparent;
             panel3.BackgroundImage = (Image)resources.GetObject("panel3.BackgroundImage");
+            panel3.Controls.Add(pictureBox4);
+            panel3.Controls.Add(pictureBox3);
+            panel3.Controls.Add(label7);
+            panel3.Controls.Add(pictureBox2);
+            panel3.Controls.Add(pictureBox1);
             panel3.Controls.Add(label_Error);
             panel3.Controls.Add(button_SignUp);
             panel3.Controls.Add(button_SignIn);
@@ -121,6 +135,60 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(551, 481);
             panel3.TabIndex = 3;
+            panel3.Paint += panel3_Paint;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(488, 229);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(26, 27);
+            pictureBox4.TabIndex = 12;
+            pictureBox4.TabStop = false;
+            pictureBox4.Visible = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(488, 229);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(26, 27);
+            pictureBox3.TabIndex = 11;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.BackColor = Color.Transparent;
+            label7.Font = new Font("Segoe UI", 9F, FontStyle.Underline, GraphicsUnit.Point);
+            label7.Location = new Point(374, 270);
+            label7.Name = "label7";
+            label7.Size = new Size(116, 20);
+            label7.TabIndex = 10;
+            label7.Text = "Quên mật khẩu?";
+            label7.Click += label7_Click;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.BackColor = Color.Transparent;
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(14, 224);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(31, 34);
+            pictureBox2.TabIndex = 9;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.BackColor = Color.Transparent;
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(13, 113);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(31, 34);
+            pictureBox1.TabIndex = 8;
+            pictureBox1.TabStop = false;
             // 
             // label_Error
             // 
@@ -134,7 +202,7 @@
             // 
             // button_SignUp
             // 
-            button_SignUp.Location = new Point(297, 304);
+            button_SignUp.Location = new Point(268, 304);
             button_SignUp.Name = "button_SignUp";
             button_SignUp.Size = new Size(222, 44);
             button_SignUp.TabIndex = 5;
@@ -156,10 +224,10 @@
             // 
             // textBox_MK
             // 
-            textBox_MK.Location = new Point(24, 229);
+            textBox_MK.Location = new Point(49, 229);
             textBox_MK.Name = "textBox_MK";
             textBox_MK.PasswordChar = '*';
-            textBox_MK.Size = new Size(495, 27);
+            textBox_MK.Size = new Size(441, 27);
             textBox_MK.TabIndex = 3;
             textBox_MK.Text = "PassWord";
             textBox_MK.Enter += textBox_MK_Enter;
@@ -169,18 +237,18 @@
             // 
             label3.AutoSize = true;
             label3.BackColor = Color.PaleGoldenrod;
-            label3.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label3.Location = new Point(24, 183);
+            label3.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label3.Location = new Point(49, 191);
             label3.Name = "label3";
-            label3.Size = new Size(112, 31);
+            label3.Size = new Size(103, 26);
             label3.TabIndex = 2;
             label3.Text = "Mật Khẩu";
             // 
             // textBox_TK
             // 
-            textBox_TK.Location = new Point(24, 118);
+            textBox_TK.Location = new Point(49, 118);
             textBox_TK.Name = "textBox_TK";
-            textBox_TK.Size = new Size(495, 27);
+            textBox_TK.Size = new Size(441, 27);
             textBox_TK.TabIndex = 1;
             textBox_TK.Text = "UserName";
             textBox_TK.Enter += textBox_TK_Enter;
@@ -190,10 +258,10 @@
             // 
             label2.AutoSize = true;
             label2.BackColor = Color.PaleGoldenrod;
-            label2.Font = new Font("Segoe UI", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
-            label2.Location = new Point(24, 65);
+            label2.Font = new Font("Times New Roman", 13.8F, FontStyle.Regular, GraphicsUnit.Point);
+            label2.Location = new Point(49, 80);
             label2.Name = "label2";
-            label2.Size = new Size(111, 31);
+            label2.Size = new Size(110, 26);
             label2.TabIndex = 0;
             label2.Text = "Tài Khoản";
             // 
@@ -224,6 +292,10 @@
             panel2.PerformLayout();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 
@@ -243,5 +315,10 @@
         private Label label4;
         private Label label5;
         private Label label6;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox2;
+        private Label label7;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox4;
     }
 }

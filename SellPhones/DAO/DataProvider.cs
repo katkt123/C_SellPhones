@@ -26,7 +26,7 @@ namespace Sellphone.DAO
 
 
 
-        string strCnn = "Data source= LAPTOP-JRNAKFBB ;database= QLCH ;User ID=sa;Password=1234;";
+        string strCnn = "Data source= LAPTOP-021AUJCB\\SQLEXPRESS02 ;database= SellphoneFinal ;User ID=sa;Password=123;";
         private static DataProvider instance;
 
         public static DataProvider Instance

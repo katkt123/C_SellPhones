@@ -25,13 +25,13 @@ namespace SellPhones.BUS
         }
         
 
-        public string Register(string user, string pass, string name, string address, string phone)
+        public string Register(string user, string pass,string email, string name, string address, string phone)
         {
             if (RegisterDAO.Instance.isUserNameExist(user))
             {
                 return "Tên Đăng Nhập Đã Được Tạo";
             }
-            else if (RegisterDAO.Instance.Register(user, pass, name, address, phone)) return "Đăng Ký Thành Công";
+            else if (RegisterDAO.Instance.Register(user, pass,email, name, address, phone)) return "Đăng Ký Thành Công";
             else return "Đăng Ký Thất Bại";
             
         } 

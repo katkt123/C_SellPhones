@@ -18,6 +18,8 @@ namespace SellPhones.GUI
 {
     public partial class LoginGUI : Form
     {
+        public static string user;
+        public static string password;
         private Timer timer;
         private string[] words;
         private string[] words1;
@@ -118,9 +120,17 @@ namespace SellPhones.GUI
                 MessageBox.Show(LoginDAO.Instance.getQuyen(id));
                 string quyen = LoginDAO.Instance.getQuyen(id);
                 string subs = id.Substring(0, 2);
-                LoginBUS.Instance.active(id);
+
                 if (String.Equals(quyen, "Quản Lý") || String.Equals(quyen, "Nhân Viên") || String.Equals(quyen, "Quản Trị Viên"))
+                {
+                    LoginBUS.Instance.active(id);
                     return true;
+                }
+                else if (string.Equals(quyen, "Khóa"))
+                {
+                    MessageBox.Show("Tài khoản này hiện tại đang bị khóa !!!!");
+                    return false;
+                }
                 else return false;
             }
         }
@@ -173,6 +183,8 @@ namespace SellPhones.GUI
 
             if (valid() && login())
             {
+                user = textBox_TK.Text;
+                password = textBox_MK.Text;
                 MessageBox.Show("DangNhapThanhCong");
                 this.Hide();
                 MainGUI main = new MainGUI();
@@ -199,6 +211,34 @@ namespace SellPhones.GUI
         private void label6_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void panel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void label7_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            ForgotPassGUI rf = new ForgotPassGUI();
+            rf.StartPosition = FormStartPosition.CenterScreen;
+            rf.ShowDialog();
+            this.Close();
+        }
+
+        private void pictureBox4_Click(object sender, EventArgs e)
+        {
+            textBox_MK.PasswordChar = '*';
+            pictureBox3.Visible = true;
+            pictureBox4.Visible = false;
+        }
+
+        private void pictureBox3_Click(object sender, EventArgs e)
+        {
+            textBox_MK.PasswordChar = '\0';
+            pictureBox3.Visible = false;
+            pictureBox4.Visible = true;
         }
     }
 }

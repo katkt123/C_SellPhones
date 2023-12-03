@@ -6,6 +6,8 @@ using System.Data;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
+using static System.Net.Mime.MediaTypeNames;
 
 namespace SellPhones.DAO
 {
@@ -90,6 +92,10 @@ namespace SellPhones.DAO
 
             return DataProvider.Instance.ExecuteQuery(query);
         }
-
+        public DataTable SearchKH(string data)
+        {
+            string sql = "select * from KhachHang where concat(MaKH,TenKH,DiaChi,SDT,MaTK) COLLATE Latin1_General_CI_AI like '%" + data + "%'";
+            return DataProvider.Instance.ExecuteQuery(sql);
+        }
     }
 }

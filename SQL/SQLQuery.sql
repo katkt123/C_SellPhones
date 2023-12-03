@@ -1,8 +1,8 @@
-
+﻿
 
 create table NhaCungCap
 (
-	MaNCC				NCHAR(5)					NOT NULL,
+	MaNCC				NCHAR(7)					NOT NULL,
 	TenNCC				NVARCHAR(40)				NOT NULL,
 	DiaChiNCC			NVARCHAR(40),
 	SDTNCC				NVARCHAR(10)
@@ -22,17 +22,18 @@ create table SanPham
 	SoLuong 			INT						NOT NULL,
     HinhAnh                 NCHAR(100)                                      NOT NULL    
 )
-create table DoanhThu
-(
-	MaDoanhThu		NCHAR(5)						NOT NULL,
-        TongDoanhThu                    int                   
-)
+-- create table DoanhThu
+-- (
+-- 	MaDoanhThu		NCHAR(5)						NOT NULL,
+--         TongDoanhThu                    int                   
+-- )
 
 create table TaiKhoan
 (
 	MaTK				NCHAR(7)					NOT NULL,
 	TenDangNhap				NCHAR(50)					,
 	MatKhau				NVARCHAR(50)				,
+	Email				NVarChar(50) 				,
 	TrangThai					INT							NOT NULL
 )
 
@@ -65,7 +66,7 @@ create table ChuongTrinhKhuyenMai
         ThoiGianBatDau			NVARCHAR(100)                                    NOT NULL,
 	ThoiGianKetThuc			NVARCHAR(100)                         NOT NULL,
         ThoiGianTaoKM                   NVARCHAR(100)                          NOT NULL,
-        MaSP				NCHAR(5)					NOT NULL,                                    
+        MaSP				NCHAR(5)					                               
         
 	
 )
@@ -76,10 +77,10 @@ create table HoaDon
 	MaKH				NCHAR(5)					NOT NULL,
 	MaNV				NCHAR(5)					NOT NULL,
 	NgayLap                         datetime,
-        NgayXuat                        datetime,
+    NgayXuat                        datetime,
 	TongGiaGoc			int                                             NOT NULL,
         TongGiaSauGiam                  int,
-        MaDoanhThu		NCHAR(5)						NOT NULL
+        -- MaDoanhThu		NCHAR(5)						NOT NULL
         
 )
 
@@ -103,26 +104,26 @@ create table PhieuNhapKho
 (
 	MaPhieuNhap		NCHAR(5)						NOT NULL,
 	MaKho			NCHAR(5)						NOT NULL,
+	MaNV			NCHAR(5)						NOT NULL,
 	NgayNhap		datetime                                               NOT NULL,
 	TongTien		int                                                     NOT NULL,
-    Thue                    int
 )
 
 create table CTPhieuNhapKho
 (
 	MaPhieuNhap		NCHAR(5)						NOT NULL,
-	MaNCC			NCHAR(5)						NOT NULL,
+	MaNCC			NCHAR(7)						NOT NULL,
 	SLNhap			int,
 	Tamtinh			int,
-        SoLuong                         int                                             NOT NULL,
-        DonGia                          int                                             NOT NULL
+	DonGia                          int                                             NOT NULL
 )
 
 create table SanPhamNCC
 (
-    MaNCC				NCHAR(5)					NOT NULL,
+    MaNCC				NCHAR(7)					NOT NULL,
 	MaSP				NCHAR(5)					NOT NULL,
-	TenSP				NVarChar(50)				NOT NULL
+	TenSP				NVarChar(50)				NOT NULL,
+	DonGia				int 						NOT NULL
 )
 
 
@@ -156,16 +157,16 @@ alter table ChuongTrinhKhuyenMai
 alter table TaiKhoan
 	add constraint PK_TaiKhoan primary key(MaTK)
 
-alter table DoanhThu
-	add constraint PK_DoanhThu primary key(MaDoanhThu)
+-- alter table DoanhThu
+-- 	add constraint PK_DoanhThu primary key(MaDoanhThu)
 
 --Khóa ngoại--
 alter table HoaDon
 	add constraint FK_MaKhachHang_HoaDon foreign key (MaKH) references KhachHang(MaKH)
 alter table HoaDon
         add constraint FK_MaNhanVien_HoaDon foreign key (MaNV) references NhanVien(MaNV)
-alter table HoaDon 
-        add constraint FK_MaDoanhThu_HoaDon foreign key (MaDoanhThu) references DoanhThu(MaDoanhThu)
+-- alter table HoaDon 
+--         add constraint FK_MaDoanhThu_HoaDon foreign key (MaDoanhThu) references DoanhThu(MaDoanhThu)
 
 alter table SanPhamNCC
         add constraint FK_MaNCC_SanPhamNCC  foreign key (MaNCC)    references NhaCungCap(MaNCC)
@@ -188,6 +189,8 @@ alter table Quyen
 
 alter table PhieuNhapKho
 	add constraint FK_MaKho_PhieuNhapKho foreign key (MaKho) references Kho(MaKho)
+alter table PhieuNhapKho
+	add constraint FK_MaNV_PhieuNhapKho foreign key (MaNV) references NhanVien(MaNV)
 
 alter table CTPhieuNhapKho
 	add constraint FK_MaPhieuNhap_CTPhieuNhapKho foreign key (MaPhieuNhap) references PhieuNhapKho(MaPhieuNhap)
@@ -197,3 +200,84 @@ alter table CTPhieuNhapKho
 
 alter table ChuongTrinhKhuyenMai
 	add constraint FK_MaSP_ChuongTrinhKhuyenMai foreign key (MaSP) references SanPham(MaSP)
+ 
+-- Thêm dữ liệu
+-- NhaCungCap
+INSERT INTO NhaCungCap VALUES
+('NCC001', 'Công ty A', 'Địa chỉ A', '0123456789'),
+('NCC002', 'Công ty B', 'Địa chỉ B', '0987654321')
+-- Add 8 more rows...
+-- TaiKhoan
+INSERT INTO TaiKhoan VALUES
+('AD', 'admin', 'admin', 'lamkiet0902741206@gmail.com', 0),
+('TK001', 'user1', 'userpass1', 'user1@gmail.com', 0),
+('TK002', 'user2', 'userpass2', 'user2@gmail.com', 0),
+('TK003', 'user3', 'userpass3', 'user3@gmail.com', 0),
+('TK004', 'user4', 'userpass4', 'user4@gmail.com', 0)
+-- Quyen
+INSERT INTO Quyen VALUES
+('AD', 'Quản Trị Viên'),
+('TK001', 'Nhân Viên'),
+('TK002', 'Nhân Viên'),
+('TK003', 'Khách Hàng'),
+('TK004', 'Khách Hàng')
+-- Add 8 more rows...
+
+-- SanPham
+INSERT INTO SanPham VALUES
+('SP001', 'Laptop', 'Dell', '8GB', 1200, 50, 'C:\SGU\Nam3 HK1\CNPM\DoAn_Final\CNPM\src\HinhDT\Iphone_11.jpg'),
+('SP002', 'Smartphone', 'Samsung', '128GB', 800, 30, 'C:\SGU\Nam3 HK1\CNPM\DoAn_Final\CNPM\src\HinhDT\Iphone_11.jpg')
+-- Add 8 more rows...
+
+
+-- Add 8 more rows...
+
+-- NhanVien
+INSERT INTO NhanVien VALUES
+('NV001', 'Nguyen Van A', 'Nam', 'Địa chỉ A', '0123456789', 'TK001'),
+('NV002', 'Tran Thi B', 'Nữ', 'Địa chỉ B', '0987654321', 'TK002')
+-- Add 8 more rows...
+
+-- KhachHang
+INSERT INTO KhachHang VALUES
+('KH001', 'Le Van C', 'Địa chỉ C', '0123456789', 'TK003'),
+('KH002', 'Pham Thi D', 'Địa chỉ D', '0987654321', 'TK004')
+-- Add 8 more rows...
+
+
+
+-- HoaDon
+INSERT INTO HoaDon VALUES
+('HD001', 'KH001', 'NV001', '2023-01-15', '2023-01-15', 3000, 2700),
+('HD002', 'KH002', 'NV002', '2023-02-20', '2023-02-20', 2000, 1800)
+-- Add 8 more rows...
+
+-- CTHoaDon
+INSERT INTO CTHoaDon VALUES
+('HD001', 'SP001', 'Laptop Dell', 2, 2400),
+('HD001', 'SP002', 'Smartphone Samsung', 1, 300)
+-- Add 8 more rows...
+
+-- Kho
+INSERT INTO Kho VALUES
+('K001', 'Kho 1', 'HCM', '0123456789')
+-- Add 8 more rows...
+
+-- PhieuNhapKho
+INSERT INTO PhieuNhapKho VALUES
+('PN001', 'K001', 'NV001', '2023-03-10', 1500),
+('PN002', 'K001', 'NV001', '2023-03-10', 1500)
+
+-- Add 8 more rows...
+
+-- CTPhieuNhapKho
+INSERT INTO CTPhieuNhapKho VALUES
+('PN001', 'NCC001', 100, 1000, 10),
+('PN002', 'NCC002', 80, 800, 12)
+-- Add 8 more rows...
+
+-- SanPhamNCC
+INSERT INTO SanPhamNCC VALUES
+('NCC001', 'SP001', 'Laptop Dell', 1100),
+('NCC002', 'SP002', 'Smartphone Samsung', 900)
+-- Add 8 more rows...

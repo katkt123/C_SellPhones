@@ -101,6 +101,44 @@ namespace SellPhones.DAO
             result = DataProvider.Instance.ExecuteNonQuery(query, new object[] {PhanQuyen, id});
             return result == 1;
         }
-
+        public DataTable SearchTK(string data)
+        {
+            string sql = "select * from TaiKhoan where concat(MaTK,TenDangNhap,MatKhau,Email) COLLATE Latin1_General_CI_AI like '%" + data + "%'";
+            return DataProvider.Instance.ExecuteQuery(sql);
+        }
+        public string getQuyen(String id)
+        {
+            string quyen = "";
+            string sql = "Select PhanQuyen from Quyen where MaTK = @id";
+            DataTable dt =  DataProvider.Instance.ExecuteQuery(sql, new object[] { id });
+            foreach( DataRow row in  dt.Rows)
+            {
+                quyen = row[0].ToString();
+            }
+            return quyen;
+        }
+        public DataTable getDS(string action)
+        {
+            string sql;
+            DataTable dt = new DataTable();
+            if (action == "Tất cả")
+            {
+                sql = "Select * from Quyen";
+                dt = DataProvider.Instance.ExecuteQuery(sql, new object[] { });
+            }
+            else if (action == "Khóa")
+            {
+                string quyen = "Khóa";
+                sql = "Select * from Quyen where PhanQuyen = @quyen";
+                dt = DataProvider.Instance.ExecuteQuery(sql, new object[] { quyen });
+            }
+            else if (action == "Không khóa")
+            {
+                string phanQuyen = "Khóa"; 
+                sql = "Select * from Quyen where PhanQuyen <> @phanQuyen";
+                dt = DataProvider.Instance.ExecuteQuery(sql, new object[] { phanQuyen });
+            }
+            return dt;
+        }
     }
 }
